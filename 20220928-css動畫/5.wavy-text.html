@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wavy</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
+    rel="stylesheet">
+
+  <style>
+    * {
+      font-family: 'Noto Sans TC', sans-serif;
+    }
+
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      /* 不會有捲軸 */
+      margin: 0;
+      background: linear-gradient(transparent 50%, rgba(18, 197, 161, 0.5)100%);
+    }
+
+    div {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      /* 倒影新屬性  */
+      /*can i use 查詢瀏覽器是否可使用  */
+      -webkit-box-reflect: below -25px linear-gradient(transparent, rgba(0, 0, 0, 0.3));
+    }
+
+
+    div span {
+      display: inline-block;
+      font-size: 3rem;
+      margin: 0 1rem;
+      text-shadow:
+        1px 1px 1px rgba(0, 0, 0, 0.5),
+        1px 1px 2px rgba(0, 0, 0, 0.3),
+        1px 1px 3px rgba(0, 0, 0, 0.1);
+      animation: jump 1s ease-in-out infinite;
+    }
+
+    div span:nth-child(1) {
+      animation-delay: 0.1s;
+    }
+
+    div span:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    div span:nth-child(3) {
+      animation-delay: 0.3s;
+    }
+
+    div span:nth-child(4) {
+      animation-delay: 0.4s;
+    }
+
+    div span:nth-child(5) {
+      animation-delay: 0.5s;
+    }
+
+    div span:nth-child(6) {
+      animation-delay: 0.6s;
+    }
+
+    div span:nth-child(7) {
+      animation-delay: 0.7s;
+    }
+
+    div span:nth-child(8) {
+      animation-delay: 0.8s;
+    }
+
+    @keyframes jump {
+      0% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-50px);
+      }
+
+      100% {
+        transform: translateY(0px);
+      }
+
+    }
+  </style>
+
+
+
+</head>
+
+
+
+<body>
+  <div>
+    <span>A</span>
+    <span>B</span>
+    <span>C</span>
+    <span>D</span>
+    <span>E</span>
+    <span>F</span>
+    <span>G</span>
+    <span>H</span>
+  </div>
+
+
+
+
+
+
+</body>
+
+</html>
