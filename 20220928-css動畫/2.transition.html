@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 2rem;
+    }
+
+    hr {
+      margin: 30px 0;
+    }
+
+    .hover {
+      width: 100px;
+      height: 100px;
+      color: beige;
+      background-color: #000;
+      text-align: center;
+      line-height: 100px;
+      position: relative;
+      left: 0;
+      font-size: 2rem;
+      /* 設定轉場屬性，預設all，也可以設定none，也可以依據屬性設定 */
+      /* transition-property: all; */
+
+      /* 持續時間 預設為0 */
+      transition-duration: 10s;
+
+      /* 轉場速率
+      ease 預設值
+      linear 線性，維持等速
+      ease-in 由慢變快
+      ease-out 由快變慢
+      ease-in-out 由慢變快再由快變慢
+      */
+      /* transition-timing-function: linear; */
+
+      /* 延遲時間預設0 */
+      /* transition-delay: 1s;  */
+
+      /* 縮寫 */
+      /* transition: width 0.5s ease-in, background-color 3s ease-in-out; */
+
+      /* 常用，針對所有屬性去做轉場，並將duration設定1秒 */
+      /* transition: 1s; */
+    }
+
+    .hover:hover {
+      background-color: dodgerblue;
+      width: 50vw;
+      font-size: 4rem;
+      transform: rotate(360deg);
+    }
+
+    /* 針對子元素轉場 */
+    .hover span {
+      transition: 0.5s;
+    }
+
+    .hover:hover span {
+      margin-left: 400px;
+      color: #000;
+    }
+
+
+
+    .link {
+      text-decoration: none;
+      display: inline-block;
+      /* width: 200px; */
+      /* height: 100px; */
+      padding: .5rem .75rem;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+      text-align: center;
+      color: beige;
+      background-color: rgb(115, 37, 216);
+      line-height: 30px;
+      transition-timing-function: linear;
+      transition: 1s;
+
+    }
+
+    .link:hover {
+      background-color: rgb(227, 138, 245);
+      transform: rotate(360deg) translate(100px, 0) scale(1.2);
+      font-size: 1rem;
+    }
+
+    /*  */
+
+
+    label[ for='checked-me'] {
+      background: rgb(102, 166, 172);
+      color: aliceblue;
+      padding: .5rem .75rem;
+      display: inline-block;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .sidebar {
+      width: 100px;
+      color: antiquewhite;
+      background: #333;
+      padding: 1rem;
+      margin-left: -200px;
+      transition: 1s;
+    }
+
+    #checked-me:checked+.sidebar {
+      margin-left: 0;
+    }
+
+    #checked-me {
+      display: none;
+    }
+  </style>
+
+</head>
+
+<body>
+  <h1> 轉場</h1>
+
+  <ul>
+    <li>轉場是 兩組樣式 之間漸進式的轉換過程，起始樣式與結束樣式，瀏覽器會將兩組樣式形成捕間動畫(tween)</li>
+    <li>必須要有狀態來觸發動作(狀態有很多種)，最常見的是: hover，或是 media query媒體查詢尺寸的改變也可以造成轉場</li>
+    <li></li>
+  </ul>
+
+  <h1>hover狀態</h1>
+  <div class="hover">
+    <span>hover</span>
+  </div>
+
+  <h2>練習:試作一個按鈕，滑鼠hover時， 背景顏色、文字顏色、按鈕放大的轉場效果</h2>
+
+  <a href="#" class="link "> 按鈕連結</a>
+
+
+  <h1> checked 狀態</h1>
+  <p>:checked狀態改變，transition 產生</p>
+  <label for="checked-me"> check Me </label>
+  <input type="checkbox" id="checked-me">
+  <div class="sidebar">
+    建材情形交給更為科技有限公司，自我室內承擔無門管理肯定播放，記得小孩廣告能在音樂好激動是這樣夢幻請求網頁，解放不喜歡不在免費高興臨時鏡頭解決方案學會，辦公室，小心風景工業又是出生抽菸區難得一款差距，採取沒人運用，飲食輕易據說一些，榮譽有權學術，許多方案他。
+
+  </div>
+
+
+
+
+</body>
+
+</html>
