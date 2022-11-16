@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      font-family: '微軟正黑體';
+    }
+
+    body {
+      width: 80%;
+      margin: auto;
+    }
+
+    h1 {
+      border-bottom: 1px solid #000;
+      margin: 20px 0;
+    }
+
+    hr {
+      height: 5px;
+      margin: 3rem 0;
+
+    }
+
+    .row {
+      width: 1200px;
+      height: 300px;
+      border: 1px solid #000;
+      margin: 0 0 3rem 0;
+    }
+
+    .col {
+      background: #ffa;
+      margin: 10px;
+    }
+
+    .d-flex {
+      display: flex;
+    }
+
+    .flex-direction {
+      flex-direction: row;
+    }
+
+    .flex-basis {
+
+      flex: ;
+
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <h1>Flexbox</h1>
+  <p>Flex box 設定為兩部分: 彈性容器(flex container) 與 彈性項目(flex items)</p>
+  <img src="./flex_terms.png" alt="">
+
+
+  <h1>彈性盒設定</h1>
+  <div class="row d-flex flex-direction  ">
+    <div class="col flex-basis">彈性項目01</div>
+    <div class="col flex-basis ">彈性項目02</div>
+    <div class="col flex-basis ">彈性項目03</div>
+  </div>
+
+
+</body>
+
+</html>

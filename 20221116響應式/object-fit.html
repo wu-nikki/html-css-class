@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      width: 500px;
+      height: 500px;
+      border: 1rem solid lightcoral;
+    }
+
+    .bg {
+      background-image: url(./黑貓.jpg);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .object-fit {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      /* object-position: 90% 50%; */
+      object-position: 90%;
+      /* 另一側會被設置成center 或50% */
+    }
+  </style>
+</head>
+
+<body>
+  <h1>背景圖 bg-size</h1>
+  <p>調整背景與容器大小一樣時，可設定 background-size: cover</p>
+  <div class="box bg"></div>
+
+  <h1>圖片 object-fit</h1>
+  <p>1.設定圖片 width，height100%佔滿容器，圖片與容器尺寸比例可能不對，會造成圖片變形</p>
+  <p> 2.對圖片使用object-fit: cover ，再用object-position調位置</p>
+  <div class="box"><img class="object-fit" src=" ./長條廣告貓.png" alt=""></div>
+
+
+</body>
+
+</html>

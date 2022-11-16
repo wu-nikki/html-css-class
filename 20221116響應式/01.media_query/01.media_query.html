@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 這個跟rwd有關係 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      /* breakpoint 斷點0~575px */
+      * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        box-sizing: border-box;
+        transition: 1s;
+      }
+
+      :root {
+        /* rwd文字 */
+        font-size: calc(0.75rem + 1.125vw);
+        /* css原生變數 */
+        --primary: #0d6efd;
+        --secondary: #6c757d;
+        --success: #198754;
+        --info: #0dcaf0;
+        --warning: #ffc107;
+        --danger: #dc3543;
+      }
+
+      /* 可以隨著網頁大小做變化 */
+      .box {
+        border-radius: calc(0.5rem + 0.05vw);
+      }
+
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: url("https://picsum.photos/300/200/?random=10") no-repeat center/cover;
+      }
+
+      .container {
+        background: rgb(255, 227, 227);
+        width: 95%;
+        margin: 1rem auto;
+        padding: 15px;
+        border: 1px solid rgb(255, 0, 0);
+      }
+
+      .isShow {
+        display: none;
+      }
+
+      h1 {
+        color: var(--warning);
+        background-color: var(--success);
+        margin-bottom: 1rem;
+      }
+
+      li {
+        margin-bottom: 0.5rem;
+      }
+
+      .sidebar {
+        width: 150px;
+        color: #fff;
+        /* border-radius: 1rem; */
+        padding: 1rem;
+        background: #000;
+        position: fixed;
+        left: 0;
+
+        display: none;
+      }
+
+      /* min-width 尺寸以上(包含) */
+      @media(min-width: 576px) {
+        /* 會吃這裡的樣式 */
+      }
+
+      /* max-width 尺寸以下(包含) */
+      @media(max-width: 768px) {
+        /* 會吃這裡的樣式 */
+      }
+
+      /* 裝置介於 576px 和 768px 之間的樣式 */
+      @media(min-width: 576px) and (max-width: 768px) {
+        /* 會吃這裡的樣式 */
+      }
+
+      /* breakpoint 斷點575~767 */
+      @media(min-width: 576px) {
+        :root {
+          font-size: 1.0rem;
+        }
+
+        body {
+          background: url("https://picsum.photos/300/200/?random=20")no-repeat center/cover;
+        }
+
+        h1 {
+          color: yellow;
+          background: darkorchid;
+        }
+
+        .container {
+          border: 3px dashed #000;
+        }
+
+      }
+
+      /* breakpoint 斷點768~992px */
+      @media(min-width: 768px) {
+
+        :root {
+          font-size: 1.15rem;
+        }
+
+        /* 會吃這裡的樣式 */
+        body {
+          background: url("https://picsum.photos/300/200/?random=30")no-repeat center/cover;
+        }
+
+        h1 {
+          color: yellow;
+          background: rgb(50, 204, 124);
+        }
+
+        .container {
+          border: 3px outset #fff;
+          width: 80%;
+        }
+      }
+
+      /* breakpoint 斷點992px以上 */
+      @media(min-width: 992px) {
+
+        :root {
+          font-size: 1.25rem;
+        }
+
+        body {
+          background: url("https://picsum.photos/300/200/?random=4")no-repeat center/cover;
+        }
+
+        h1 {
+          color: var(--warning);
+          background: rgb(143, 143, 143);
+        }
+
+        .container {
+          width: 80%;
+          border: 10px solid #2d4ba5;
+          box-shadow: 0 0 50px #ffc107;
+        }
+
+        .isShow {
+          display: inline-block;
+        }
+
+        .sidebar {
+          display: block;
+        }
+
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container ">
+      <h1>響應式網頁設計</h1>
+      <h1 class="isShow">responsive web design</h1>
+      <ul>
+        <li>1. 響應式網頁設計，讓內容如水般能適應各種形狀的容器，能在每個裝置尺寸正常瀏覽。</li>
+        <li>2. 媒體查詢的斷點(breakpoint) 為不同裝置尺寸設定通過的位置點，當通過設定的位置點套用該尺寸的樣式。</li>
+        <li>3. 使用相對單位設定寬高或大小(rem、%、vh、vw)， 字體大小使用 rem，容器 width、height 使用% </li>
+        <li>4. 行動裝置優先的漸進增強的概念，一種基於小尺寸開始思考內容的設計模式。(bootstrap)</li>
+      </ul>
+    </div>
+
+    <div class="sidebar box">
+      簽名任務，人生一起屬性感染庫存進度來的站長，你是賓館彩色上班注重有的到處概念不到以來手中能學到產業，供應最為人物清晰理由手冊阿宅人民共和國覺得距離模式寫作，而言數量緊緊穿著說是前來留言物理原則通過除了創意生氣那麼，種子完整鈴聲類別就業當然美麗，高考用戶名。
+    </div>
+  </body>
+
+</html>
