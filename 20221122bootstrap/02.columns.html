@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 1. link bootsrap.css -->
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <title>Document</title>
+
+  <style>
+    body {
+      padding-bottom: 150px;
+    }
+
+    .row {
+      background: #eee;
+      margin-bottom: 1rem;
+    }
+
+    .row>*:nth-child(1) {
+      background: var(--bs-teal);
+    }
+
+    .row>*:nth-child(2) {
+      background: var(--bs-cyan);
+    }
+
+    .row>*:nth-child(3) {
+      background: var(--bs-yellow);
+    }
+
+    .row>*:nth-child(4) {
+      background: var(--bs-pink);
+    }
+
+    .row>*:nth-child(5) {
+      background: var(--bs-purple);
+    }
+
+    h3 {
+      margin: 1.5rem 0;
+    }
+
+    h4 {
+      margin-bottom: 1.5rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>欄</h1>
+    <p>.row 是彈性盒， .col 欄位是彈性項目，可使用 BS 提供的彈性盒屬性相關 class 來對齊。</p>
+
+    <h2>垂直對齊</h2>
+    <div class="row align-items-start align-items-md-center align-items-lg-end" style="height:200px;">
+      <div class="col">col</div>
+      <div class="col">col</div>
+      <div class="col">col</div>
+    </div>
+
+    <h2>水平對齊</h2>
+    <div class="row justify-content-start">
+      <div class="col-4">col</div>
+      <div class="col-4">col</div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-4">col</div>
+      <div class="col-4">col</div>
+    </div>
+    <div class="row justify-content-end">
+      <div class="col-4">col</div>
+      <div class="col-4">col</div>
+    </div>
+    <div class="row justify-content-around">
+      <div class="col-4">col</div>
+      <div class="col-4">col</div>
+    </div>
+    <div class="row justify-content-between">
+      <div class="col-4">col</div>
+      <div class="col-4">col</div>
+    </div>
+    <div class="row justify-content-evenly">
+      <div class="col-4">col</div>
+      <div class="col-4">col</div>
+    </div>
+
+    <hr>
+
+    <div class="row justify-content-start justify-content-lg-between">
+      <div class="col-4">col</div>
+      <div class="col-4">col</div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h1>Column breaks</h1>
+    <h2>第一組</h2>
+    <div class="row">
+      <div class="col-6 col-sm-3">.col-6 .col-sm-3</div>
+      <div class="col-6 col-sm-3">.col-6 .col-sm-3</div>
+
+      <!-- Force next columns to break to new line -->
+      <div class="w-100"></div>
+
+      <div class="col-6 col-sm-3">.col-6 .col-sm-3</div>
+      <div class="col-6 col-sm-3">.col-6 .col-sm-3</div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2>第二組</h2>
+    <div class="row">
+      <div class="col-6 col-sm-4">.col-6 .col-sm-4</div>
+      <div class="col-6 col-sm-4">.col-6 .col-sm-4</div>
+
+      <!-- Force next columns to break to new line at md breakpoint and up -->
+      <div class="w-100 d-none d-md-block"></div>
+
+      <div class="col-6 col-sm-4">.col-6 .col-sm-4</div>
+      <div class="col-6 col-sm-4">.col-6 .col-sm-4</div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2>使用 margin 調整空間</h2>
+    <div class="row">
+      <div class="col-auto">col</div>
+      <div class="col-auto ms-auto">col</div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="clearfix">
+      <img src="https://picsum.photos/100/100/?random=10" class="col-md-6 float-md-end mb-3 ms-md-3">
+      <p>
+        A paragraph of placeholder text. We're using it here to show the use of the clearfix class. We're adding quite a few meaningless phrases here to
+        demonstrate how the columns interact here with the floated image.
+      </p>
+
+      <p>
+        As you can see the paragraphs gracefully wrap around the floated image. Now imagine how this would look with some actual content in here, rather than
+        just this boring placeholder text that goes on and on, but actually conveys no tangible information at. It simply takes up space and should not really
+        be read.
+      </p>
+
+      <p>
+        And yet, here you are, still persevering in reading this placeholder text, hoping for some more insights, or some hidden easter egg of content. A joke,
+        perhaps. Unfortunately, there's none of that here.
+      </p>
+    </div>
+
+  </div>
+
+  <!--
+  左邊開始的語系(大部分)
+  margin-left => ms
+  margin-right => me
+
+  右邊開始的語系(例如阿語系)
+  margin-left => me
+  margin-right => ms
+  -->
+  <script src="./js/bootstrap.bundle.js"></script>
+</body>
+
+</html>

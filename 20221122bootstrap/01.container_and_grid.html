@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 1. link bootsrap.css -->
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <title>Document</title>
+
+  <style>
+    body {
+      padding-bottom: 150px;
+    }
+
+    .row {
+      margin-bottom: 1rem;
+    }
+
+    .row>*:nth-child(odd) {
+      background: lightskyblue;
+    }
+
+    .row>*:nth-child(even) {
+      background: lightgreen;
+    }
+
+    .row>* {
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>容器</h1>
+    <h2>固定容器</h2>
+    <p>固定容器紙通過某個斷點後，為該固定容器設定 max-width 尺寸，在尚未通過斷點都是維持 width:100%。</p>
+  </div>
+
+  <div class="container bg-primary mb-5">.container 固定容器(常用)</div>
+
+  <div class="container">
+    <h2>滿版容器</h2>
+    <p>滿版容器指不受斷點影響，總是維持滿版。</p>
+  </div>
+
+  <div class="container-fluid bg-dark text-white">滿版容器(常用)</div>
+
+  <hr>
+
+  <div class="container">
+    <h1>網格系統(Grid System)</h1>
+    <ul>
+      <li>為 12 欄位系統，在某個斷點尺寸，一列的欄位分佈狀況。</li>
+      <li>row 為一列</li>
+      <li>col 為欄位</li>
+      <li>每個 col 左右 gutter，也就是 padding 為 12px</li>
+    </ul>
+
+    <h2>等寬</h2>
+    <p>.col、.col-sm、.col-md、.col-lg、.col-xl、.col-xxl 為等寬欄位，注意，後面沒有接數字，它們依據斷點去做等寬的變化。</p>
+
+    <h3>xs 最小尺寸開始，一列兩欄等寬</h3>
+    <div class="row">
+      <div class="col">xs 最小尺寸開始等寬</div>
+      <div class="col">xs 最小尺寸開始等寬</div>
+    </div>
+
+    <h3>md 尺寸以上開始，一列三欄等寬，在 md 之前欄位寬度是 100%</h3>
+    <div class="row">
+      <div class="col-md">md</div>
+      <div class="col-md">md</div>
+      <div class="col-md">md</div>
+    </div>
+
+    <h3>等寬範例</h3>
+    <div class="row">
+      <div class="col-lg">
+        <div class="card">
+          <img src="https://picsum.photos/800/600/?random=10" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg">
+        <div class="card">
+          <img src="https://picsum.photos/800/600/?random=10" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg">
+        <div class="card">
+          <img src="https://picsum.photos/800/600/?random=10" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2>設置一欄寬度</h2>
+
+    <h3>例子1:使用數字分配欄寬，12欄位系統，總和為 12，超過會換行。</h3>
+    <div class="row">
+      <!-- xs 以上兩欄均分 -->
+      <div class="col-6">col-6</div>
+      <div class="col-6">col-6</div>
+
+      <!-- md 以上三欄均分 -->
+      <div class="col-md-4">col-md-4</div>
+      <div class="col-md-4">col-md-4</div>
+      <div class="col-md-4">col-md-4</div>
+
+      <!-- xl 以上四欄均分 -->
+      <div class="col-xl-3">col-xl-3</div>
+      <div class="col-xl-3">col-xl-3</div>
+      <div class="col-xl-3">col-xl-3</div>
+      <div class="col-xl-3">col-xl-3</div>
+
+      <!-- lg 以上 8、4 分 -->
+      <div class="col-lg-8">col-lg-8</div>
+      <div class="col-lg-4">col-lg-4</div>
+
+      <!-- xs 以上 3、6、3 分 -->
+      <div class="col-3">col-3</div>
+      <div class="col-6">col-6</div>
+      <div class="col-3">col-3</div>
+
+
+    </div>
+
+    <h3>例子2:超過 12 換行</h3>
+    <div class="row">
+      <div class="col-8">col</div>
+      <div class="col-4">col</div>
+      <div class="col-4">col</div>
+      <div class="col-5">col</div>
+      <div class="col-4">col</div>
+      <div class="col-9">col</div>
+    </div>
+
+    <h3>例子3:決定某個欄寬的等份，其餘都想等寬。</h3>
+    <div class="row">
+      <div class="col">col</div>
+      <div class="col-6">col-6</div>
+      <div class="col">col</div>
+    </div>
+
+    <h3>例子4:很難均分的狀況，例如分配了 5 等份，剩餘 7 等份無法用數字均分，只能用 col 來分配。</h3>
+    <div class="row">
+      <div class="col">col</div>
+      <div class="col-5">col-5</div>
+      <div class="col">col</div>
+    </div>
+  </div>
+
+  <!--
+      xs => 1 欄
+      md => 2 欄
+      xl => 3 欄
+    -->
+  <div class="container">
+    <h3>範例:欄位分布</h3>
+    <div class="row">
+      <div class="col-12 col-md-6 col-xl-4">1</div>
+      <div class="col-12 col-md-6 col-xl-4">2</div>
+      <div class="col-12 col-md-6 col-xl-4">3</div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="container">
+    <h2>可變寬度內容</h2>
+    <p>col-{breakpoint}-auto，這系列 flex-basis: auto、width: auto，意思指以內容寬度為準。</p>
+    <h3>例子1:以內容的寬度為準</h3>
+    <div class="row justify-content-center">
+      <div class="col-lg-2">col-lg-2</div>
+      <div class="col-lg-auto">col-lg-auto</div>
+      <div class="col-lg-2">col-lg-2</div>
+    </div>
+
+    <h3>例子2:如果內容太多會佔據整個列寬</h3>
+    <div class="row justify-content-center">
+      <div class="col-lg-2">col-lg-2</div>
+      <div class="col-lg-auto">十年工程臉上報名像是促進尋找評估組成，退出一塊成本不會周邊這位死亡你看些什麼必要一眼決策設備不說，大家都時代消息特別是思路章節勝利說話出生制定用途，百萬庫存開發商網際也許為什麼以往生日男人管理民國全體一次，在那裡見過批評怎麼輕易走出坐在必然可愛，目前大概。
+      </div>
+      <div class="col-lg-2">col-lg-2</div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h1>......................</h1>
+    <div class="row justify-content-md-center">
+      <div class="col col-lg-2">
+        1 of 3
+      </div>
+      <div class="col-md-auto">
+        Variable width content
+      </div>
+      <div class="col col-lg-2">
+        3 of 3
+      </div>
+    </div>
+
+    <h1>22222222222222222222222</h1>
+    <div class="row">
+      <div class="col">
+        1 of 3
+      </div>
+      <div class="col-md-auto">
+        Variable width content
+      </div>
+      <div class="col col-lg-2">
+        3 of 3
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2>水平堆疊</h2>
+    <div class="row">
+      <div class="col-sm-8">col-sm-8</div>
+      <div class="col-sm-4">col-sm-4</div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm">col-sm</div>
+      <div class="col-sm">col-sm</div>
+      <div class="col-sm">col-sm</div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h3>練習:設計一個各種尺寸欄位的分布</h3>
+    <p>最小尺寸垂直排列，md 兩欄、lg 三欄、xl 四欄</p>
+    <div class="row">
+      <div class="col-md-6 col-lg-4 col-xl-3">col</div>
+      <div class="col-md-6 col-lg-4 col-xl-3">col</div>
+      <div class="col-md-6 col-lg-4 col-xl-3">col</div>
+      <div class="col-md-6 col-lg-4 col-xl-3">col</div>
+      <div class="col-md-6 col-lg-4 col-xl-3">col</div>
+      <div class="col-md-6 col-lg-4 col-xl-3">col</div>
+      <div class="col-md-6 col-lg-4 col-xl-3">col</div>
+      <div class="col-md-6 col-lg-4 col-xl-3">col</div>
+      <div class="col-md-6 col-lg-4 col-xl-3">col</div>
+      <div class="col-md-6 col-lg-4 col-xl-3">col</div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="container">
+    <div class="row row-cols-2">
+      <div class="col">Column</div>
+      <div class="col">Column</div>
+      <div class="col">Column</div>
+      <div class="col">Column</div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+      <div class="col">Column</div>
+      <div class="col">Column</div>
+      <div class="col">Column</div>
+      <div class="col">Column</div>
+    </div>
+  </div>
+  <script src="./js/bootstrap.bundle.js"></script>
+</body>
+
+</html>
