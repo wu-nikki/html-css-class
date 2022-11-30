@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <title>Document</title>
+  <style>
+    .container {
+      margin-bottom: 15px;
+
+    }
+
+    h3 {
+      margin: 20px 0;
+    }
+
+    .d-flex {
+      height: 200px;
+    }
+
+    .d-flex>:nth-child(1) {
+      background-color: var(--bs-indigo);
+
+    }
+
+    .d-flex>:nth-child(2) {
+      background-color: var(--bs-yellow);
+    }
+
+    .d-flex>:nth-child(3) {
+      background-color: var(--bs-pink);
+    }
+
+    .d-flex>:nth-child(4) {
+      background-color: var(--bs-red);
+    }
+
+    .d-flex>:nth-child(5) {
+      background-color: var(--bs-white);
+    }
+
+    .d-flex>:nth-child(6) {
+      background-color: var(--bs-green);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>flex</h1>
+    <h2>水平</h2>
+    <div class="d-flex flex-row bg-light">
+      <div class="p-2">Flex Item1</div>
+      <div class="p-2">Flex Item2</div>
+      <div class="p-2">Flex Item3</div>
+    </div>
+    <br>
+    <div class="d-flex flex-row-reverse bg-light">
+      <div class="p-2">Flex Item1</div>
+      <div class="p-2">Flex Item2</div>
+      <div class="p-2">Flex Item3</div>
+    </div>
+
+  </div>
+  <div class="container">
+
+    <h2>垂直</h2>
+    <div class="d-flex flex-column bg-light ">
+      <div class="p-2">Flex Item1</div>
+      <div class="p-2">Flex Item2</div>
+      <div class="p-2">Flex Item3</div>
+    </div>
+    <br>
+    <div class="d-flex flex-column-reverse bg-light ">
+      <div class="p-2">Flex Item1</div>
+      <div class="p-2">Flex Item2</div>
+      <div class="p-2">Flex Item3</div>
+    </div>
+
+  </div>
+
+  <div class="container">
+
+    <h2>改變 flex 物件在主軸上的對齊</h2>
+    <div class="d-flex justify-content-start bg-light align-items-center">
+      <div class="p-2">justify-content-start</div>
+      <div class="p-2">Flex Item2</div>
+      <div class="p-2">Flex Item3</div>
+    </div>
+    <br>
+    <div class="d-flex justify-content-around bg-light align-items-center">
+      <div class="p-2">justify-content-around</div>
+      <div class="p-2">Flex Item2</div>
+      <div class="p-2">Flex Item3</div>
+    </div>
+
+  </div>
+
+  <div class="container">
+    <h2>改變 flex 物件在次軸上的對齊</h2>
+    <div class="d-flex justify-content-start bg-light align-items-start">
+      <div class="p-2">align-items-start</div>
+      <div class="p-2">Flex Item2</div>
+      <div class="p-2">Flex Item3</div>
+    </div>
+    <br>
+    <div class="d-flex  justify-content-around bg-light align-items-stretch ">
+      <div class="p-2">align-items-stretch(預設)</div>
+      <div class="p-2">Flex Item2</div>
+      <div class="p-2">Flex Item3</div>
+    </div>
+
+  </div>
+
+  <div class="container">
+    <h2>.flex-fill 來強制設定它們的寬度與內容相等</h2>
+    <div class="d-flex justify-content-start bg-light align-items-start">
+      <div class="p-2 flex-fill">flex-fill</div>
+      <div class="p-2 flex-fill">Flex Item2</div>
+      <div class="p-2 flex-fill">Flex Item3</div>
+    </div>
+    <br>
+    <h2> .flex-grow-1與.flex-fill相同 </h2>
+    <div class="d-flex justify-content-around bg-light align-items-stretch ">
+      <div class="p-2 flex-grow-1">flex-grow-1</div>
+      <div class="p-2">Flex Item2</div>
+      <div class="p-2">Flex Item3</div>
+    </div>
+
+  </div>
+
+  <div class="container">
+    <h2>透過自動 margin 來控制 flex 項目</h2>
+    <h3> mb-3 </h3>
+    <div class="d-flex bd-highlight mb-3">
+      <div class="p-2 bd-highlight">Flex item</div>
+      <div class="p-2 bd-highlight">Flex item</div>
+      <div class="p-2 bd-highlight">Flex item</div>
+    </div>
+    <h3> me-auto </h3>
+    <div class="d-flex bd-highlight mb-3">
+      <div class="me-auto p-2 bd-highlight">me-auto</div>
+      <div class="p-2 bd-highlight">Flex item</div>
+      <div class="p-2 bd-highlight">Flex item</div>
+    </div>
+    <h3> ms-auto </h3>
+    <div class="d-flex bd-highlight mb-3">
+      <div class="p-2 bd-highlight">Flex item</div>
+      <div class="p-2 bd-highlight">Flex item</div>
+      <div class="ms-auto p-2 bd-highlight">ms-auto</div>
+    </div>
+  </div>
+
+
+  <div class="container">
+    <h2>爆版</h2>
+    <h3>flex-shrink-0</h3>
+    <div class="d-flex border border-3 bg-light w-25 align-items-center  ">
+      <div class="p-2 w-25  flex-shrink-0">Flex Item1</div>
+      <div class="p-2 w-25 flex-shrink-0">Flex Item2</div>
+      <div class="p-2 w-25 flex-shrink-0">Flex Item3</div>
+      <div class="p-2 w-25 flex-shrink-0">Flex Item4</div>
+      <div class="p-2 w-25 flex-shrink-0">Flex Item5</div>
+      <div class="p-2 w-25 flex-shrink-0">Flex Item6</div>
+    </div>
+  </div>
+  <div class="container">
+    <h2>Wrap </h2>
+    <h3>flex-nowrap</h3>
+    <div class="d-flex border border-3 bg-light w-25 align-items-center flex-nowrap ">
+      <div class="p-2 w-25  ">Flex Item1</div>
+      <div class="p-2 w-25 ">Flex Item2</div>
+      <div class="p-2 w-25 ">Flex Item3</div>
+      <div class="p-2 w-25 ">Flex Item4</div>
+      <div class="p-2 w-25 ">Flex Item5</div>
+      <div class="p-2 w-25 ">Flex Item6</div>
+    </div>
+
+    <h3>flex-wrap</h3>
+    <div class="d-flex border border-3 bg-light w-25 align-items-center flex-wrap ">
+      <div class="p-2 w-25  ">Flex Item1</div>
+      <div class="p-2 w-25 ">Flex Item2</div>
+      <div class="p-2 w-25 ">Flex Item3</div>
+      <div class="p-2 w-25 ">Flex Item4</div>
+      <div class="p-2 w-25 ">Flex Item5</div>
+      <div class="p-2 w-25 ">Flex Item6</div>
+    </div>
+
+
+    <h3>flex-wrap-reverse</h3>
+    <div class="d-flex border border-3 bg-light w-25 align-items-center flex-wrap-reverse ">
+      <div class="p-2 w-25  ">Flex Item1</div>
+      <div class="p-2 w-25 ">Flex Item2</div>
+      <div class="p-2 w-25 ">Flex Item3</div>
+      <div class="p-2 w-25 ">Flex Item4</div>
+      <div class="p-2 w-25 ">Flex Item5</div>
+      <div class="p-2 w-25 ">Flex Item6</div>
+    </div>
+
+  </div>
+
+
+  <script src="/js/bootstrap.bundle.js"></script>
+</body>
+
+</html>

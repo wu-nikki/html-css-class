@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 1. link bootsrap.css -->
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <title>Document</title>
+  <style>
+    .container {
+      margin-bottom: 20px;
+    }
+
+    h3 {
+      margin: 20px 0;
+    }
+
+    .d-flex {
+      color: white;
+      background: var(--bs-gray-200);
+      margin-bottom: 20px;
+      height: 200px;
+    }
+
+    .d-flex>:nth-child(1) {
+      background-color: var(--bs-purple);
+    }
+
+    .d-flex>:nth-child(2) {
+      background-color: var(--bs-yellow);
+    }
+
+    .d-flex>:nth-child(3) {
+      background-color: var(--bs-pink);
+    }
+
+    .d-flex>:nth-child(4) {
+      background-color: var(--bs-green);
+    }
+
+    .d-flex>:nth-child(5) {
+      background-color: var(--bs-cyan);
+    }
+
+    .d-flex>:nth-child(6) {
+      background-color: var(--bs-gray);
+    }
+
+    .flex-1 {
+      /* flex: 1 1 0; */
+      flex: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Flex</h1>
+    <h2>水平</h2>
+    <div class="d-flex flex-row">
+      <div class="p-2">Flex Item1</div>
+      <div class="p-2">Flex Item2</div>
+      <div class="p-2">Flex Item3</div>
+    </div>
+
+    <div class="d-flex flex-row-reverse">
+      <div class="p-2">Flex Item1</div>
+      <div class="p-2">Flex Item2</div>
+      <div class="p-2">Flex Item3</div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2>垂直</h2>
+    <div class="d-flex flex-column">
+      <div class="p-2">Flex Item1</div>
+      <div class="p-2">Flex Item2</div>
+      <div class="p-2">Flex Item3</div>
+    </div>
+    <div class="d-flex flex-column-reverse">
+      <div class="p-2">Flex Item1</div>
+      <div class="p-2">Flex Item2</div>
+      <div class="p-2">Flex Item3</div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="d-flex flex-column flex-md-row">
+      <div class="p-2">Flex Item1</div>
+      <div class="p-2">Flex Item2</div>
+      <div class="p-2">Flex Item3</div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2>.flex-grow-1 與 .flex-fill 作用相同，flex:1 1 auto;</h2>
+    <div class="d-flex">
+      <!-- flex: 1 1 auto; -->
+      <div class="p-2 flex-grow-1">Flex item with a lot of content Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia veritatis dolor
+        expedita doloremque adipisci. Et quo tempore nulla optio officia deleniti, modi cumque dolorum necessitatibus? Inventore, facere error. Quos, voluptate!
+      </div>
+      <div class="p-2 flex-grow-1">Flex item</div>
+      <div class="p-2 flex-grow-1">Flex item</div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2>如果要等寬，自己要建立一個 .flex-1 來讓欄位等寬，flex:1 1 0; 空間完全由 flex-grow 去延伸。</h2>
+    <div class="d-flex">
+      <div class="p-2 flex-1">Flex item with a lot of content Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia veritatis dolor
+        expedita doloremque adipisci. Et quo tempore nulla optio officia deleniti, modi cumque dolorum necessitatibus? Inventore, facere error. Quos, voluptate!
+      </div>
+      <div class="p-2 flex-1">Flex item</div>
+      <div class="p-2 flex-1">Flex item</div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2>爆版</h2>
+    <div class="d-flex align-items-center w-25 border border-5">
+      <div class="w-25 h-75 flex-shrink-0">item1</div>
+      <div class="w-25 h-75 flex-shrink-0">item2</div>
+      <div class="w-25 h-75 flex-shrink-0">item3</div>
+      <div class="w-25 h-75 flex-shrink-0">item4</div>
+      <div class="w-25 h-75 flex-shrink-0">item5</div>
+      <div class="w-25 h-75 flex-shrink-0">item6</div>
+    </div>
+  </div>
+
+  <!-- 2. bootstrap.bundle.js -->
+  <script src="./js/bootstrap.bundle.js"></script>
+</body>
+
+</html>
