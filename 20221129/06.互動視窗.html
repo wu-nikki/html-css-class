@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <link rel="stylesheet" href="./icons/bootstrap-icons.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="container">
+    <h1>互動視窗(modal)</h1>
+    <h2>觸發按鈕</h2>
+    <ul>
+      <li>可以使用 button 或 a 元素觸發 modal視窗，啟動 data-bs-toggle="modal" 效果 </li>
+      <li>兩者觸發需對應 modal 主體的id</li>
+      <li>使用 button 元素時，要在 data-bs-target 設定id</li>
+      <li>使用 a 時，設定 herf = id</li>
+    </ul>
+    <div class="row">
+      <div class="col">
+        <!-- Button  modal -->
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#mi">
+          使用 button 觸發 modal 視窗
+        </button>
+
+      </div>
+
+      <div class="col">
+        <a href="#mi" class="btn btn-primary" data-bs-toggle="modal">
+          使用 a 觸發 modal 視窗
+        </a>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Modal 主體-->
+  <!-- data-bs-backdrop="static"  不給點選背景關閉互動視窗功能-->
+  <div id="mi" class="modal fade" data-bs-backdrop="static">
+    <!-- .modal-dialog-centered 設定在中間出現的互動視窗 -->
+    <!-- .modal-dialog-scrollable 可滾動的互動視窗 -->
+    <!-- .modal-xl(1140px)、.modal-lg(800px)、.modal-sm(300px)、沒設定的話是500px-->
+    <!--滿版互動視窗 
+      .modal-fullscreen	Always
+      .modal-fullscreen-sm-down	Below 576px
+      .modal-fullscreen-md-down	Below 768px
+      .modal-fullscreen-lg-down	Below 992px
+      .modal-fullscreen-xl-down	Below 1200px
+      .modal-fullscreen-xxl-down	Below 1400px
+      -->
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-sm modal-fullscreen-xl-down">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">汪汪汪汪汪汪汪</h5>
+          <!-- data-bs-dismiss 關閉互動視窗 -->
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          咪喵喵喵喵喵喵凹
+
+        </div>
+        <div class="modal-footer">
+          <!-- data-bs-dismiss 關閉互動視窗 -->
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  </div>
+
+
+  <script src="/js/bootstrap.bundle.js"></script>
+</body>
+
+</html>
