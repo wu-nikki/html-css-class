@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <link rel="stylesheet" href="./icons/bootstrap-icons.css">
+  <title>手風琴</title>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-6">
+        <h2>有框線手風琴</h2>
+        <div class="accordion" id="nikki">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+              <!-- data-bs-toggle 觸發叫collapse的功能
+              data-bs-target摺疊地方的 id 叫nikki-01 
+              -->
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nikki-01">
+                介紹
+              </button>
+            </h2>
+            <div id="nikki-01" class="accordion-collapse collapse show" data-bs-parent="#nikki">
+              <div class="accordion-body">
+                <ul>
+                  <li>0000</li>
+                  <li>1111</li>
+                  <li>2222</li>
+                  <li>3333</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#nikki-02">
+                喵喵喵喵
+              </button>
+            </h2>
+            <div id="nikki-02" class="accordion-collapse collapse" data-bs-parent="#nikki">
+              <div class="accordion-body">
+                <ul>
+                  <li>4444</li>
+                  <li>5555</li>
+                  <li>6666</li>
+                  <li>7777</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThree">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#nikki-03">
+                咪喵喵
+              </button>
+            </h2>
+            <div id="nikki-03" class="accordion-collapse collapse" data-bs-parent="#nikki">
+              <div class="accordion-body">
+                <ul>
+                  <li>8888</li>
+                  <li>9999</li>
+                  <li>1010</li>
+                  <li>1111</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-6">
+        <h2>無框線手風琴Flush</h2>
+        <div class="accordion accordion-flush" id="nikki-1">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#flush-1">
+                Accordion Item #1
+              </button>
+            </h2>
+            <div id="flush-1" class="accordion-collapse collapse" data-bs-parent="#nikki-1">
+              <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the
+                <code>.accordion-flush</code> class. This is the first item's accordion body.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingTwo">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#flush-2">
+                Accordion Item #2
+              </button>
+            </h2>
+            <div id="flush-2" class="accordion-collapse collapse" data-bs-parent="#nikki-1">
+              <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the
+                <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this
+                being
+                filled with some actual content.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingThree">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#flush-3">
+                Accordion Item #3
+              </button>
+            </h2>
+            <div id="flush-3" class="accordion-collapse collapse" data-bs-parent="#nikki-1">
+              <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the
+                <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting
+                happening here in terms of content, but just filling up the space to make it look, at least at first
+                glance, a bit more representative of how this would look in a real-world application.
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="row">
+      <h2> 總是開啟</h2>
+      <p> 省略每個在 .accordion-collapse 上的 data-bs-parent 屬性，使 accordion item 在打開另一個 item 時保持打開狀態。</p>
+
+      <code>
+        < div id="nikki-03" class="accordion-collapse collapse show"<br> 少=> data-bs-parent="#nikki"> <br>
+          < div class="accordion-body"> </code>
+
+
+      <div class="accordion" id="nikki-2">
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+              data-bs-target="#panelsStayOpen-01">
+              Accordion Item #1
+            </button>
+          </h2>
+          <div id="panelsStayOpen-01" class="accordion-collapse collapse show">
+            <div class="accordion-body">
+              <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse
+              plugin adds the appropriate classes that we use to style each element. These classes control the overall
+              appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom
+              CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the
+              <code>.accordion-body</code>, though the transition does limit overflow.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#panelsStayOpen-02">
+              Accordion Item #2
+            </button>
+          </h2>
+          <div id="panelsStayOpen-02" class="accordion-collapse collapse">
+            <div class="accordion-body">
+              <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse
+              plugin adds the appropriate classes that we use to style each element. These classes control the overall
+              appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom
+              CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the
+              <code>.accordion-body</code>, though the transition does limit overflow.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#panelsStayOpen-03">
+              Accordion Item #3
+            </button>
+          </h2>
+          <div id="panelsStayOpen-03" class="accordion-collapse collapse">
+            <div class="accordion-body">
+              <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse
+              plugin adds the appropriate classes that we use to style each element. These classes control the overall
+              appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom
+              CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the
+              <code>.accordion-body</code>, though the transition does limit overflow.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+
+  <script src="/js/bootstrap.bundle.js"></script>
+</body>
+
+</html>

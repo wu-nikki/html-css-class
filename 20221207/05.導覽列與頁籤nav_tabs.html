@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 1. link bootstrap.css -->
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <title>Document</title>
+  <style>
+    .container {
+      margin-bottom: 50px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h2>填充和對齊</h2>
+    <h3>1. nav-fill</h3>
+    <p>使用 nav-fill 會將剩餘空間平均分給 nav-item 內容左右兩側空間。</p>
+    <p>.nav-fill 是 flex:1 1 auto = flex: auto = flex-grow: 1</p>
+    <div class="row">
+      <div class="col">
+        <ul class="nav nav-pills nav-fill bg-danger">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">重量也要，普遍回來改變儘快一切都，接受。</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Much longer nav link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active">Disabled</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h3>2. nav-justified</h3>
+    <p>想要等寬的 nav-item 使用 nav-justified</p>
+    <p>nav-justified 的 flex-basis 為 0，也就是讓寬度無效化，每個項目的分配空間會以 flex-grow 為主。</p>
+    <div class="row">
+      <div class="col">
+        <ul class="nav nav-pills bg-danger nav-justified">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">重量也要，普遍回來改變儘快</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Much longer nav link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active">Disabled</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2>JavaScript 行為</h2>
+    <h3>nav-tabs</h3>
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#home" type="button">Home</button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile" type="button">Profile</button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#contact" type="button">Contact</button>
+      </li>
+    </ul>
+    <div class="tab-content">
+      <div class="tab-pane fade show active" id="home">
+        破壞本地下載為你課程，兒童團結幾乎物業日報西安遊戲許多馬上最大，本文保持這樣為此廣播嚴格哈哈，搜尋引擎立即鈴聲下載，字體晚上帶來高雄說什麼這就是沒什麼公園激動，中有道理暴力網頁班快速基隆全面一半女士數量維修優秀，飯店網址一身，模組勞動相同，大小工作區別價。
+      </div>
+      <div class="tab-pane fade" id="profile">
+        藥物三年，參考苗栗身上不夠絶對都能，是怎麼特性繼續草魚一級有關部門，自然詢問足夠婦女龍岡，差不多兩種春天享受理想龍岡冠軍最多幫忙有關部門如果簡直，之下動力男子尺寸重點見過委員會不好住宅，頭銜對話不說今年感興趣絶對，我想書庫春天身材研究所直到，門口身邊，精。
+      </div>
+      <div class="tab-pane fade" id="contact">
+        門口遇到少女什麼是注意無關本地下載，委員會舉報審核透露無奈灌水原本多年站點，現代海外簡體，看不到成為就要不可能素質玩具模擬常用歌詞相比上面上帝，青春上有人大說著紀念主要輕輕得知高雄無門這段成功欣賞主營，接收龍岡專業近年來產業歌詞先進教育，保健下去完了免費。
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h3>nav-pills</h3>
+    <ul class="nav nav-pills">
+      <li class="nav-item">
+        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#home2" type="button">Home</button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#profile2" type="button">Profile</button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#contact2" type="button">Contact</button>
+      </li>
+    </ul>
+    <div class="tab-content">
+      <div class="tab-pane fade show active" id="home2">
+        破壞本地下載為你課程，兒童團結幾乎物業日報西安遊戲許多馬上最大，本文保持這樣為此廣播嚴格哈哈，搜尋引擎立即鈴聲下載，字體晚上帶來高雄說什麼這就是沒什麼公園激動，中有道理暴力網頁班快速基隆全面一半女士數量維修優秀，飯店網址一身，模組勞動相同，大小工作區別價。
+      </div>
+      <div class="tab-pane fade" id="profile2">
+        藥物三年，參考苗栗身上不夠絶對都能，是怎麼特性繼續草魚一級有關部門，自然詢問足夠婦女龍岡，差不多兩種春天享受理想龍岡冠軍最多幫忙有關部門如果簡直，之下動力男子尺寸重點見過委員會不好住宅，頭銜對話不說今年感興趣絶對，我想書庫春天身材研究所直到，門口身邊，精。
+      </div>
+      <div class="tab-pane fade" id="contact2">
+        門口遇到少女什麼是注意無關本地下載，委員會舉報審核透露無奈灌水原本多年站點，現代海外簡體，看不到成為就要不可能素質玩具模擬常用歌詞相比上面上帝，青春上有人大說著紀念主要輕輕得知高雄無門這段成功欣賞主營，接收龍岡專業近年來產業歌詞先進教育，保健下去完了免費。
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h3>除了使用 button，也可以使用 a 標籤</h3>
+    <p>使用 a 標籤，可以使用 href="#id"，來找到目標位置。</p>
+    <p>使用 button 標籤，使用 data-bs-target="#id"，來找到目標位置。</p>
+    <ul class="nav nav-pills">
+      <li class="nav-item">
+        <a class="nav-link active" data-bs-toggle="pill" href="#a1" type="button">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-bs-toggle="pill" href="#a2" type="button">Profile</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-bs-toggle="pill" href="#a3" type="button">Contact</a>
+      </li>
+    </ul>
+    <div class="tab-content">
+      <div class="tab-pane fade show active" id="a1">
+        破壞本地下載為你課程，兒童團結幾乎物業日報西安遊戲許多馬上最大，本文保持這樣為此廣播嚴格哈哈，搜尋引擎立即鈴聲下載，字體晚上帶來高雄說什麼這就是沒什麼公園激動，中有道理暴力網頁班快速基隆全面一半女士數量維修優秀，飯店網址一身，模組勞動相同，大小工作區別價。
+      </div>
+      <div class="tab-pane fade" id="a2">
+        藥物三年，參考苗栗身上不夠絶對都能，是怎麼特性繼續草魚一級有關部門，自然詢問足夠婦女龍岡，差不多兩種春天享受理想龍岡冠軍最多幫忙有關部門如果簡直，之下動力男子尺寸重點見過委員會不好住宅，頭銜對話不說今年感興趣絶對，我想書庫春天身材研究所直到，門口身邊，精。
+      </div>
+      <div class="tab-pane fade" id="a3">
+        門口遇到少女什麼是注意無關本地下載，委員會舉報審核透露無奈灌水原本多年站點，現代海外簡體，看不到成為就要不可能素質玩具模擬常用歌詞相比上面上帝，青春上有人大說著紀念主要輕輕得知高雄無門這段成功欣賞主營，接收龍岡專業近年來產業歌詞先進教育，保健下去完了免費。
+      </div>
+    </div>
+  </div>
+  <!-- 2. link bootstrap.bundle.js -->
+  <script src="./js/bootstrap.bundle.js"></script>
+</body>
+
+</html>

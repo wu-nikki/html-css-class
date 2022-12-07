@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <title>Document</title>
+  <style>
+    ul.myCounter {
+      /* 重置第一層計數器，設定識別字為 number-lv-1 */
+      counter-reset: number-lv-1;
+    }
+
+    ul.myCounter>li::before {
+      /* 
+        語法 identifer 是 counter-rest 的識別字，number 是遞增的數字
+        counter-increment: identifer number
+      */
+      content: counter(number-lv-1) ".";
+      counter-increment: number-lv-1;
+    }
+
+    /* 第二層 */
+    ul.myCounter ul {
+      counter-reset: number-lv-2;
+    }
+
+    ul.myCounter ul>li::before {
+      content: counter(number-lv-1) "-" counter(number-lv-2);
+      counter-increment: number-lv-2;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h2>編號</h2>
+    <ol class="list-group list-group-numbered myCounter">
+      <li class="list-group-item">A list item</li>
+      <li class="list-group-item">A list item</li>
+      <li class="list-group-item">A list item</li>
+    </ol>
+
+    <h3>CSS 的 counter-increment</h3>
+    <ul class="myCounter">
+      <li>HTML</li>
+      <li>CSS</li>
+      <ul>
+        <li>基礎選擇器</li>
+        <li>盒模型</li>
+        <li>轉場動畫</li>
+      </ul>
+      <li>JavaScript</li>
+    </ul>
+  </div>
+  <script src="./js/bootstrap.bundle.js"></script>
+</body>
+
+</html>
