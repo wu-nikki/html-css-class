@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <link rel="stylesheet" href="./icons/bootstrap-icons.css">
+  <title>文字截斷 (Text truncation)</title>
+  <style>
+    /* normal多行
+    -webkit-line-clamp 第幾行截斷
+    */
+    .text-truncate-more {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: normal;
+      display: -webkit-box;
+      -webkit-line-clamp: 5;
+      -webkit-box-orient: vertical;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>文字截斷 (Text truncation)</h1>
+    <p>對於較長的內容，可以添加 .text-truncate 類別，以透過刪節號截斷文字。需為 display: inline-block 或是 display: block。</p>
+    <!-- Block level -->
+    <div class="row">
+      <h3>Block level</h3>
+      <div class="col-6 text-truncate">
+        This text is quite long, and will be truncated once displayed.
+      </div>
+
+      <div class="col-6 text-truncate">
+        This text is quite long, and will be truncated once displayed.
+      </div>
+
+    </div>
+    <hr>
+
+    <!-- Inline level -->
+    <div class="row">
+      <h3>Inline level</h3>
+      <span class="d-inline-block text-truncate">
+        This text is quite long, and will be truncated once displayed. Lorem ipsum dolor sit, amet consectetur
+        adipisicing elit. Nisi ab aspernatur eius quasi mollitia explicabo voluptatum? Adipisci velit perferendis
+        explicabo, tempora impedit cupiditate vel id aliquam obcaecati dolores et error!
+      </span>
+    </div>
+    <hr>
+    <div class="row">
+      <h3>多行文字</h3>
+      <div class="text-truncate-more " style="width: 400px;">
+        This text is quite long, and will be truncated once displayed. Lorem ipsum dolor sit, amet consectetur
+        adipisicing elit. Nisi ab aspernatur eius quasi mollitia explicabo voluptatum? Adipisci velit perferendis
+        explicabo, tempora impedit cupiditate vel id aliquam obcaecati dolores et error!
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <script src="/js/bootstrap.bundle.js"></script>
+</body>
+
+</html>
