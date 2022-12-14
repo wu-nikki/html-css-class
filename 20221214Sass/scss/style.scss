@@ -1,0 +1,452 @@
+.a {
+  color: #000;
+}
+
+*,
+*::before,
+*::after {
+  list-style: none;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: '微軟正黑體';
+
+}
+
+.container {
+  width: 75%;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 20px 0 20px;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+section {
+  margin-bottom: 2rem !important;
+}
+
+/* css原生變數,可以被編譯出去*/
+:root {
+  --primary: #007bff;
+  --secondary: #6c757d;
+  --success: #28a745;
+  --info: #17a2b8;
+  --warning: #ffc107;
+  --danger: #dc3545;
+}
+
+/*Sass變數 不會被編譯出去*/
+$primary: #007bff;
+$secondary: #6c757d;
+$success: #28a745;
+$info: #17a2b8;
+$warning: #ffc107;
+$danger: #dc3545;
+$white: #fff;
+$gradient: linear-gradient(45deg, rgb(112, 210, 239)0%, rgb(84, 223, 239)50%, rgb(188, 246, 237)100%);
+$border: 5px solid #fff;
+$border-radius: 0.5rem;
+$padding: 0.5rem 0.5rem;
+$margin-bottom: 1rem;
+$shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+
+
+h1 {
+  background: $gradient;
+  color: $white;
+  border: $border;
+  border-radius: $border-radius;
+  padding: $padding;
+  box-shadow: $shadow;
+  margin-bottom: $margin-bottom;
+}
+
+.abc {
+  $bg_123: red;
+  $bg-123: blue;
+
+  color: $bg_123;
+}
+
+/*04.Sass流程控制*/
+$number: 10;
+/* random 為sass內建函式提供亂數功能，範例是1~3隨機*/
+$number: random(3);
+
+.mybox {
+  width: 150px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /*@if...@else if...@else*/
+  @if ($number==1) {
+    background: rgb(227, 150, 150);
+  }
+
+  @else if $number==2 {
+    background: rgb(101, 101, 189);
+  }
+
+  @else {
+    background: rgb(134, 195, 134);
+  }
+
+  /* 字串非為引號、沒引號，判斷會通過*/
+  @if (helloworld=='helloworld') {
+    box-shadow: 0 0 10px 15px rgba(0, 0, 0, 0.8);
+  }
+
+  /*使用and運算式條件成立*/
+  $stand: '喵喵喵喵';
+  $master: '汪汪汪汪';
+
+  @if ($stand=='喵喵喵喵' and $master=='汪汪汪汪') {
+    color: yellow !important;
+  }
+
+  @else {
+    color: #dc3545 !important;
+  }
+
+  /* 使用 or 運算式其中之一成立 ,不能使用|| */
+  $isHeight: '高';
+  $isRich: '富';
+  $isHandsome: '帥';
+
+  @if($isHeight=='高' or $isRich=='窮') {
+    font-weight: bolder;
+    font-size: 50px;
+  }
+
+  /*使用not反轉運算式結果*/
+  $box-width: 50px;
+
+  @if not($box-width==100px) {
+    border: 10px dashed yellowgreen;
+  }
+
+  /* 內建提供函式,類似3元運算*/
+  /*因此if 沒有@ */
+  /*($mySpacing > 10px(值), (符合就這)10px solid red, (不符合就這)10px solid black); */
+  $mySpacing: 20px;
+  outline:if($mySpacing > 10px, 10px solid red, 10px solid black);
+
+}
+
+/* @for $i from 1 through 3 ,迴圈變數1~3*/
+/*@for..through 3 =>    包含3*/
+@for $i from 1 through 3 {
+  .through-#{$i} {
+    width: 50px*$i;
+    height: 50px*$i;
+    display: inline-block;
+    background-color: #aaa;
+  }
+}
+
+/* @for $i from 1 to 3 ,迴圈變數1,2*/
+/*@for ...to 3  不包含3*/
+@for $i from 1 to 3 {
+  .to-#{$i} {
+    width: 50px*$i;
+    height: 50px*$i;
+    display: inline-block;
+    background-color: #aaa;
+  }
+
+
+}
+
+/*  05.巢狀(嵌套,nested) */
+#section05 {
+
+  p {
+    border-bottom: 1px solid #007bff;
+  }
+
+  .menu {
+    margin-top: 2rem;
+    padding: 0;
+    font-size: 0;
+
+    li {
+      display: inline-block;
+      font-size: 1rem;
+      width: 100px;
+      text-align: center;
+
+
+      a {
+        display: block;
+        background: #000;
+        color: #fff;
+        text-decoration: none;
+        padding: 0.5rem;
+
+        /* & 符號表示父層選擇器 */
+        &:hover {
+          color: #ffc107;
+          background-color: darkcyan;
+        }
+      }
+
+      &+li {
+        border-left: 1px solid #aaa;
+      }
+    }
+  }
+}
+
+
+/*& 與 clearfix */
+.clearfix {
+  &::after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}
+
+/* 父結構 block*/
+.sidebar {
+  padding-left: 0;
+  display: flex;
+
+  /* 子元素 __element*/
+  &__item {
+    color: #17a2b8;
+    padding: 1rem;
+    border: 1px solid #ffc107;
+    text-decoration: none;
+    background: rgb(204, 225, 246);
+
+    /* 修飾子元素狀態 --modifier*/
+    &--active {
+      background-color: rgb(4, 66, 116);
+    }
+
+    &:hover {
+      background-color: rgb(211, 211, 211);
+    }
+
+    & a {
+      color: #fff;
+      display: block;
+      line-height: 32px;
+      text-decoration: none;
+    }
+
+  }
+}
+
+/*練習*/
+#exercise {
+  .row {
+    display: flex;
+  }
+
+  .col {
+    padding: 10px;
+    margin: 1%;
+    border-radius: 1rem;
+    background-color: rgb(253, 254, 255);
+    border: 3px solid #ffc107;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+
+    &:hover {
+      transform: translateY(-20px);
+    }
+  }
+
+  img {
+    border-radius: 1rem 1rem 0px 0px;
+  }
+
+  a {
+    text-decoration: none;
+    color: #dc3545;
+    font-size: larger;
+    transition: 1s;
+
+    &:hover {
+      text-decoration: underline;
+      color: #28a745;
+    }
+  }
+
+}
+
+
+/*06.繼承*/
+
+%extend {
+  width: 50px;
+  height: 50px;
+  float: left;
+}
+
+#extend {
+  margin-top: 1rem;
+  overflow: auto;
+}
+
+.box1 {
+  @extend %extend;
+  background: #000;
+}
+
+.box2 {
+  @extend %extend;
+  background: rgb(152, 34, 34);
+}
+
+.box3 {
+  @extend %extend;
+  background: #28a745;
+}
+
+
+/*07*/
+.box4 {
+  background: #000;
+
+
+  /*加法*/
+  width: 50px + 50px;
+  /*有無單位都可相加*/
+  width: 50px + 50;
+  height: 50px + 50px;
+
+  /*減法*/
+  width: 150px - 50px;
+  /*有無單位都可相減*/
+  width: 150 - 50px;
+  height: 150px - 50px;
+
+  /*乘法*/
+  width: 50px * 2;
+  /*   width: 50px * 2; *數字 ，不可有單位 */
+
+  /*除法*/
+  /*width: 100px / 2; 會通過但CSS無法使用*/
+  width: 100px / 2;
+
+  /*使用變數除法 不用括號*/
+  $child: 500px;
+  $mother: 10;
+  height: calc($child / $mother);
+
+
+  $child1: 300px;
+  $mother1: 10px;
+  height: calc($child1 / $mother1);
+  /*單位會消掉*/
+
+  /*餘數*/
+  margin-top: 20px % 100;
+}
+
+/*08.函式*/
+/*隨機判斷字體大小*/
+@function randomFont() {
+  $result: random(3);
+
+  @if ($result==1) {
+    @return 20px;
+  }
+
+  @else if ($result==2) {
+    @return 40px;
+  }
+
+  @else {
+    @return 60px;
+  }
+}
+
+// 傳參數
+@function boxLength1($length, $base) {
+  @return $length*$base*1px;
+}
+
+// 指定預設值
+@function boxLength2($length: 100, $base: 1) {
+  @return $length*$base*1px;
+}
+
+
+.funcbox {
+  width: 300px;
+  height: 100px;
+  color: #17a2b8;
+  background: rgb(1, 21, 44);
+  font-size: randomFont();
+  width: boxLength1(175, 2);
+  height: boxLength2();
+}
+
+//轉換 px to rem
+@function rem($px) {
+
+  /*unit() 內建函式，判斷傳進來的參數使否有px*/
+  @if (unit($px)=='px') {
+    @return calc($px / 16px) * 1rem;
+  }  @else {
+    @return calc($px / 16) * 1rem;
+  }
+}
+
+.rem {
+  font-size: rem(16px);
+  padding: rem(48);
+}
+
+/**/
+$baseFontSize: 14px;
+$size: 2px;
+
+@function fontSize($level: 1) {
+  @if($level<0) {
+    $level: 1;
+  }
+
+  // 四捨五入，內建函式
+  @return round($baseFontSize + $size * $level)
+}
+
+$lineHeightLevel: 1.5;
+
+@function lineHeight($fontSize) {
+  //ceil 無條件進位，內建函式
+  @return ceil($fontSize * $lineHeightLevel);
+}
+
+@function pink($level: 0%) {
+  @return darken(pink, $level);
+}
+
+
+#section08 {
+  .container {
+    p {
+      font-size: font-size(2);
+      line-height: lineHeight(fontSize(2));
+      background: pink(10%);
+    }
+  }
+}

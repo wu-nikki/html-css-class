@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+  <!-- 01.Sass介紹 -->
+  <section id="section01">
+    <div class="container">
+      <h1>01.Sass介紹</h1>
+      <p>Sass 是 css的預處理器，目的在減少css的重工(重複使用，變成巢狀)</p>
+      <p>Sass 有變數、函式、流程控制、嵌套、繼承、mixins...
+        這些功能讓我們使用，比css在寫樣式時更有彈性。
+      </p>
+      <p>Sass 可以更有效率維護樣式的結構</p>
+      <p>Sass需經過編譯成原生的css才能使用，瀏覽器看不懂Sass</p>
+    </div>
+  </section>
+
+  <!-- 02.Sass資料型態 -->
+  <section id="section02">
+    <div class="container">
+      <h1>02.Sass資料型態</h1>
+      <ol>
+        <li>1.number(數字):數字有分單位跟無單位，1,10,10px,20rem</li>
+        <li>2.string(字串):可用有引號字串或無引號字串</li>
+        <li>3.color(顏色):red,#fff,rgba(0,0,0,0.5)</li>
+        <li>4.boolean(布林值):</li>
+        <li>5.null(空值):</li>
+        <li>6.list(像陣列):用半形空格或逗號作為分隔。例如:20px 0 20px，'Times New Roman', Times, serif'</li>
+        <li>7.map(物件):</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 03.Sass變數 -->
+  <section id="section03">
+    <div class="container">
+      <h1>03.Sass變數</h1>
+      <p>宣告使用 $ ，變數位置即是作用域，就像JS的let宣告，寫在大括號裡面是區域變數，最外面是全域變數。 </p>
+      <p class="abc">變數底線_ 和連結線- ，兩者是一樣的變數<br>
+        .abc {
+        $bg_123: red;
+        $bg-123: blue;
+
+        color: $bg_123;
+        }<br>
+        顯示出來的文字顏色為藍色
+      </p>
+      <p>使用變數可以維持網站的一致性，節省修改成本，只需要修改變數，不需要在css修改。</p>
+    </div>
+  </section>
+
+  <!-- 04.Sass流程控制 -->
+  <section id="section04">
+    <div class="container">
+      <h1>04.Sass流程控制</h1>
+      <h2>@if、@else if、@else</h2>
+      <p>判斷條件可以小括號，也可以不括號</p>
+      <p>使用and、or、not處理判斷運算式的結果是 true 或 false</p>
+      <div class="mybox">威為</div>
+      <br>
+      <hr>
+      <h2>@for 迴圈有兩種through 與to</h2>
+      <h4>@for $i from 1 through 3 ,迴圈變數1~3</h4>
+      <div class="through-1">1</div>
+      <div class="through-2">2</div>
+      <div class="through-3">3</div>
+
+      <h4> @for $i from 1 to 3 ,迴圈變數1,2 (不包含3)</h4>
+      <div class="to-1">1</div>
+      <div class="to-2">2</div>
+
+
+    </div>
+  </section>
+
+  <!-- 05.巢狀(嵌套,nested) -->
+  <section id="section05">
+    <div class="container">
+      <h1>05.巢狀(嵌套,nested) </h1>
+      <p>& 佔位符號可以替換父選擇器</p>
+      <p>用最少選擇器選擇到位置，盡量在3~4層</p>
+      <p>避免過度使用，會有過長不易閱讀與維護問題和造成css檔案容量變大</p>
+      <div class="menu">
+        <li><a href="#">aLINK</a></li>
+        <li><a href="#">bLINK</a></li>
+        <li><a href="#">cLINK</a></li>
+        <li><a href="#">dLINK</a></li>
+        <li><a href="#">eLINK</a></li>
+      </div>
+    </div>
+  </section>
+
+  <!-- BEM -->
+  <section id="bem">
+    <div class="container">
+      <h2>BEM 命名 </h2>
+      <aside class="sidebar">
+        <a class="sidebar__item sidebar__item--active" href="#">Menu1</a>
+        <a class="sidebar__item" href="#">Menu1</a>
+        <a class="sidebar__item" href="#">Menu1</a>
+        <a class="sidebar__item" href="#">Menu1</a>
+        <a class="sidebar__item" href="#">Menu1</a>
+      </aside>
+
+    </div>
+  </section>
+
+  <!-- 練習 -->
+  <section id="exercise">
+    <div class="container">
+      <h2>練習:建立3欄結構</h2>
+      <div class="row">
+        <div class="col">
+          <img src="https://picsum.photos/400/300/?random=10">
+          <h2><a href="#">Title</a></h2>
+          <p>
+            那位士兵陽明山拒絶地圖更新時間穿著出租好友，大量百萬擁有發佈身影只見規律抽菸區，床上發佈日期我不經營許可證，早上名單並不，理解構成本人甚至出發如今語音她的排行榜舉辦昨天，一句都能設定選項服裝是怎麼，下列人生，好處體驗買了讓我們會有，認為校長活動強烈，配置。
+          </p>
+        </div>
+
+        <div class="col">
+          <img src="https://picsum.photos/400/300/?random=10">
+          <h2><a href="#">Title</a></h2>
+          <p>
+            那位士兵陽明山拒絶地圖更新時間穿著出租好友，大量百萬擁有發佈身影只見規律抽菸區，床上發佈日期我不經營許可證，早上名單並不，理解構成本人甚至出發如今語音她的排行榜舉辦昨天，一句都能設定選項服裝是怎麼，下列人生，好處體驗買了讓我們會有，認為校長活動強烈，配置。
+          </p>
+        </div>
+
+        <div class="col">
+          <img src="https://picsum.photos/400/300/?random=10">
+          <h2><a href="#">Title</a></h2>
+          <p>
+            那位士兵陽明山拒絶地圖更新時間穿著出租好友，大量百萬擁有發佈身影只見規律抽菸區，床上發佈日期我不經營許可證，早上名單並不，理解構成本人甚至出發如今語音她的排行榜舉辦昨天，一句都能設定選項服裝是怎麼，下列人生，好處體驗買了讓我們會有，認為校長活動強烈，配置。
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- 06.繼承 -->
+  <section id="section06">
+    <div class="container">
+      <h1>06.繼承 </h1>
+      <div id="extend">
+        <p>繼承可以使用 css選擇器 或 % 佔位選擇器來命名</p>
+        <p>使用css選擇器當作繼承，會被編譯到css。 %佔位符屬於scss的範圍，不會被編譯到css</p>
+        <p>有共同樣式可使用繼承，會被聚集成群組選擇器，樣式碼會變少</p>
+        <div class="box1"></div>
+        <div class="box2"></div>
+        <div class="box3"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07.計算 -->
+  <section id="section07">
+    <div class="container">
+      <h1>07.計算 </h1>
+
+      <div class="box4"></div>
+    </div>
+  </section>
+
+
+  <!-- 08.函式 -->
+  <section id="section08">
+    <div class="container">
+      <h1>08.函式 </h1>
+      <p>@function 與 @mixin 有點像，差異在於@function 必須使用@return來回傳結果，他無法在呼叫的地方產生一段css樣式，@mixin則可以使用 @include呼叫產生一段css樣式。</p>
+
+      <div class="funcbox">喵喵喵喵</div>
+      <h3>計算字體大小與行高</h3>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae error modi aut libero, consequuntur
+        perferendis animi distinctio odio aperiam, repellendus dignissimos dolorem odit voluptatem ipsa quae? Ipsam
+        optio in autem.</p>
+    </div>
+  </section>
+
+  <!-- 09.Mixins -->
+  <section id="section09">
+    <div class="container">
+      <h1>09.Mixins </h1>
+      <p>@mixin是樣式重複使用的加工廠，目的在減少樣式重工的動作,他可以使用@include像函式一樣被呼叫，在結構上就像@function可以帶入參數。</p>
+    </div>
+  </section>
+</body>
+
+</html>
