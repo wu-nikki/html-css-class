@@ -295,7 +295,7 @@ h1 {
   height: 100px;
   color: #17a2b8;
   background: rgb(1, 21, 44);
-  font-size: 20px;
+  font-size: 60px;
   width: 350px;
   height: 100px;
 }
@@ -305,9 +305,257 @@ h1 {
   padding: 3rem;
 }
 
-/**/
+/*08.函式*/
 #section08 .container p {
   font-size: font-size(2);
   line-height: 27px;
   background: #ff8da1;
+}
+
+/*09.Mixins*/
+.mixinTry {
+  width: 100px;
+  height: 100px;
+  background: #aaa;
+}
+
+.boxflex {
+  /*如有不使用的參數要改成null*/
+  /*產生樣式*/
+  width: 100px;
+  height: 100px;
+  background: #ff9;
+  border: 5px solid #aaa;
+  outline: 10px dashed pink;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.btn {
+  display: inline-block;
+  color: #ff9;
+  text-decoration: none;
+  line-height: 1.5;
+  padding: 0.5rem 0.75rem;
+  margin: 0 0.2rem;
+  border-radius: 0.25rem;
+}
+
+.btn-dark {
+  -webkit-box-shadow: 0 0 0.3rem 0.1rem rgba(0, 0, 0, 0.8);
+          box-shadow: 0 0 0.3rem 0.1rem rgba(0, 0, 0, 0.8);
+  background-color: #000;
+}
+.btn-dark:hover {
+  background-color: #4d4d4d;
+}
+
+.btn-primary {
+  -webkit-box-shadow: 0 0 0.3rem 0.1rem rgba(0, 0, 0, 0.8);
+          box-shadow: 0 0 0.3rem 0.1rem rgba(0, 0, 0, 0.8);
+  background-color: #007bff;
+}
+.btn-primary:hover {
+  background-color: #0062cc;
+}
+
+.btn-success {
+  -webkit-box-shadow: 0 0 0.3rem 0.1rem rgba(0, 0, 0, 0.8);
+          box-shadow: 0 0 0.3rem 0.1rem rgba(0, 0, 0, 0.8);
+  background-color: #28a745;
+}
+.btn-success:hover {
+  background-color: #1e7e34;
+}
+
+.btn-danger {
+  -webkit-box-shadow: 0 0 0.3rem 0.1rem rgba(0, 0, 0, 0.8);
+          box-shadow: 0 0 0.3rem 0.1rem rgba(0, 0, 0, 0.8);
+  background-color: #dc3545;
+}
+.btn-danger:hover {
+  background-color: #bd2130;
+}
+
+/*10.使用mixin + @content 設計RWD*/
+/*
+#news {
+  @include sm {}
+
+  @include md {}
+
+  @include lg {}
+
+  @include xl {}
+
+  @include xxl {}
+}*/
+#section10 .container {
+  width: 100%;
+}
+#section10 .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+#section10 .col {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #333;
+}
+#section10 .col + .col {
+  margin-top: 20px;
+}
+@media (min-width: 576px) {
+  #section10 .container {
+    width: 75%;
+  }
+  #section10 .col {
+    width: 50%;
+  }
+  #section10 .col + .col {
+    margin-top: 0;
+  }
+}
+@media (min-width: 768px) {
+  #section10 .col {
+    width: 33.333%;
+  }
+}
+@media (min-width: 992px) {
+  #section10 .col {
+    width: 25%;
+  }
+}
+@media (min-width: 1200px) {
+  #section10 .col {
+    width: 20%;
+  }
+}
+@media (min-width: 1400px) {
+  #section10 .col {
+    width: 10%;
+  }
+}
+
+/*list 列表 像js陣列，索引從1開始，不是0 */
+/* nth(list,index)取出list裡面的item值*/
+.list {
+  width: 100px;
+  width: 200px;
+  width: 300px;
+  border: 1px solid red;
+  border: 1px solid blue;
+  border: 1px solid green;
+}
+
+/*index(list,item)取出索引*/
+.index {
+  line-height: 1;
+  line-height: 2;
+  line-height: 3;
+  z-index: 1;
+  z-index: 2;
+  z-index: 3;
+}
+
+/*length(list)取出list的長度*/
+.length {
+  z-index: 3;
+}
+
+.bg-red {
+  background-color: red;
+}
+
+.bg-yellow {
+  background-color: yellow;
+}
+
+.bg-blue {
+  background-color: blue;
+}
+
+.each-bg-red {
+  background-color: red;
+}
+
+.each-bg-yellow {
+  background-color: yellow;
+}
+
+.each-bg-blue {
+  background-color: blue;
+}
+
+/* map */
+.nth-map {
+  color: primary red;
+}
+
+.bg-primary {
+  background-color: red;
+}
+
+.bg-secondary {
+  background-color: green;
+}
+
+.bg-warning {
+  background-color: orange;
+}
+
+.map-keys {
+  color: size1, size2, size3;
+}
+
+.size1 {
+  color: red;
+}
+
+.size2 {
+  color: red;
+}
+
+.size3 {
+  color: red;
+}
+
+.w1 {
+  -webkit-box-shadow: 0 0 10px black;
+          box-shadow: 0 0 10px black;
+}
+
+.w2 {
+  -webkit-box-shadow: 0 0 20px black;
+          box-shadow: 0 0 20px black;
+}
+
+.w3 {
+  -webkit-box-shadow: 0 0 30px black;
+          box-shadow: 0 0 30px black;
+}
+
+.btn-default {
+  width: 100px;
+  height: 100px;
+}
+
+.btn-box1 {
+  width: 200px;
+  height: 200px;
+}
+
+.btn-box2 {
+  width: 300px;
+  height: 300px;
 }

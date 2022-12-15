@@ -406,7 +406,9 @@ $number: random(3);
   /*unit() 內建函式，判斷傳進來的參數使否有px*/
   @if (unit($px)=='px') {
     @return calc($px / 16px) * 1rem;
-  }  @else {
+  }
+
+  @else {
     @return calc($px / 16) * 1rem;
   }
 }
@@ -416,7 +418,7 @@ $number: random(3);
   padding: rem(48);
 }
 
-/**/
+
 $baseFontSize: 14px;
 $size: 2px;
 
@@ -440,7 +442,7 @@ $lineHeightLevel: 1.5;
   @return darken(pink, $level);
 }
 
-
+/*08.函式*/
 #section08 {
   .container {
     p {
@@ -448,5 +450,328 @@ $lineHeightLevel: 1.5;
       line-height: lineHeight(fontSize(2));
       background: pink(10%);
     }
+  }
+}
+
+/*09.Mixins*/
+// 定義一個mixin
+@mixin mixinTry() {
+  width: 100px;
+  height: 100px;
+  background: #aaa;
+}
+
+// 用include呼叫
+.mixinTry {
+  @include mixinTry()
+}
+
+@mixin box($width, $height, $bg, $border, $outline: 10px dashed pink) {
+  /*產生樣式*/
+  width: $width;
+  height: $height ;
+  background: $bg ;
+  border: $border ;
+  outline: $outline;
+}
+
+@mixin flex($main, $cross) {
+  display: flex;
+  justify-content: $main;
+  align-items: $cross;
+}
+
+.boxflex {
+  /*如有不使用的參數要改成null*/
+  // @include box(100px, 100px, null, 5px solid #aaa);
+  @include box(100px, 100px, #ff9, 5px solid #aaa);
+  @include flex(center, center)
+}
+
+.btn {
+  display: inline-block;
+  color: #ff9;
+  text-decoration: none;
+  line-height: 1.5;
+  padding: 0.5rem 0.75rem;
+  margin: 0 0.2rem;
+  border-radius: 0.25rem;
+}
+
+// 沒參數，可省略括號
+@mixin box-shadow {
+  box-shadow: 0 0 0.3rem 0.1rem rgba(0, 0, 0, 0.8);
+}
+
+@mixin btn-bg($bgcolor) {
+  & {
+    @include box-shadow();
+    background-color: $bgcolor;
+  }
+
+  &:hover {
+    @if($bgcolor==#000) {
+      background-color: lighten($bgcolor, 30%);
+    }
+
+    @else {
+      background-color: darken($bgcolor, 10%);
+    }
+  }
+
+}
+
+.btn-dark {
+  @include btn-bg(#000);
+}
+
+
+.btn-primary {
+  @include btn-bg(#007bff);
+}
+
+.btn-success {
+  @include btn-bg(#28a745);
+}
+
+.btn-danger {
+  @include btn-bg(#dc3545);
+}
+
+/*10.使用mixin + @content 設計RWD*/
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+$breakpoint-xxl: 1400px;
+
+@mixin sm {
+  @media(min-width:$breakpoint-sm ) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media(min-width:$breakpoint-md ) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media(min-width:$breakpoint-lg ) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @media(min-width:$breakpoint-xl ) {
+    @content;
+  }
+}
+
+@mixin xxl {
+  @media(min-width:$breakpoint-xxl ) {
+    @content;
+  }
+}
+
+/*
+#news {
+  @include sm {}
+
+  @include md {}
+
+  @include lg {}
+
+  @include xl {}
+
+  @include xxl {}
+}*/
+
+#section10 {
+  .container {
+    width: 100%;
+  }
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .col {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #333;
+  }
+
+  .col+.col {
+    margin-top: 20px;
+  }
+
+  // sm
+  @include sm {
+    .container {
+      width: 75%;
+    }
+
+    .col {
+      width: 50%;
+    }
+
+    .col+.col {
+      margin-top: 0;
+    }
+
+  }
+
+  // md
+  @include md {
+    .col {
+      width: 33.333%;
+    }
+  }
+
+  // lg
+  @include lg {
+    .col {
+      width: 25%;
+    }
+  }
+
+
+
+  // xl
+  @include xl {
+    .col {
+      width: 20%;
+    }
+  }
+
+  // xxl
+  @include xxl {
+    .col {
+      width: 10%;
+    }
+  }
+
+}
+
+/*list 列表 像js陣列，索引從1開始，不是0 */
+// 一系列的項目值，透過空格或逗號分隔，裡面的值都稱item
+
+$width_list: 100px, 200px, 300px;
+$margin_list: 10px 20px 30px 40px;
+$bgColor_list: red yellow blue;
+$zindex_list: 1 2 3 4;
+$border_list: 1px solid red, 1px solid blue, 1px solid green, 1px solid yellow;
+
+/* nth(list,index)取出list裡面的item值*/
+.list {
+  width: nth($width_list, 1);
+  width: nth($width_list, 2);
+  width: nth($width_list, 3);
+  border: nth($border_list, 1);
+  border: nth($border_list, 2);
+  border: nth($border_list, 3);
+}
+
+/*index(list,item)取出索引*/
+.index {
+  line-height: index($width_list, 100px);
+  line-height: index($width_list, 200px);
+  line-height: index($width_list, 300px);
+  z-index: index($bgColor_list, red);
+  z-index: index($bgColor_list, yellow);
+  z-index: index($bgColor_list, blue);
+}
+
+/*length(list)取出list的長度*/
+.length {
+  z-index: length($bgColor_list);
+}
+
+// 使用for來跑list的item
+@for $i from 1 through length($bgColor_list) {
+  .bg-#{nth($bgColor_list,$i)} {
+    background-color: nth($bgColor_list, $i);
+  }
+}
+
+// 使用each
+@each $item in $bgColor_list {
+  .each-bg-#{$item} {
+    background-color: $item;
+  }
+}
+
+/* map */
+$map1: (
+  primary:red,
+  secondary:green,
+  warning:orange
+);
+
+.nth-map {
+  color: nth($map1, 1);
+}
+
+@each $key,
+$value in $map1 {
+  .bg-#{$key} {
+    background-color: $value;
+  }
+}
+
+// map2
+$map2: (
+  size1:100px,
+  size2:200px,
+  size3:300px
+);
+
+.map-keys {
+  color: map-keys($map2);
+}
+
+@each $key in map-keys($map2 ) {
+  .#{$key} {
+    color: red;
+  }
+}
+
+// map3
+$map3: (
+  shadow1:0 0 10px black,
+  shadow2:0 0 20px black,
+  shadow3:0 0 30px black
+);
+$i: 0;
+
+@each $value in map-values($map3) {
+  $i: $i+1;
+
+  .w#{$i} {
+    box-shadow: $value;
+  }
+}
+
+// map4
+$map4: (
+  default:(width:100px,
+    height:100px),
+  box1:(width:200px,
+    height:200px),
+  box2:(width:300px,
+    height:300px)
+);
+
+@each $key,
+$value in$map4 {
+  $width: map-get($value, width);
+  $height: map-get($value, height);
+
+  .btn-#{$key} {
+    width: $width;
+    height: $height;
   }
 }
