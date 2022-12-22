@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.css' />
+  <!-- swiper的css -->
+  <link  rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+  <title>Document</title>
+<style>
+  :root{
+    --swiper-theme-color:orange
+  }
+
+body{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* 可修改輪播圖寬高 ，或隨著外容器的寬高*/
+#nikki .swiper {
+  width: 1200px;
+  /* height: 200px; */
+}
+
+#nikki .swiper-slide img{
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+#nikki .swiper-pagination-bullet{
+width: 23px;
+height: 23px;
+line-height: 23px;
+font-size: 1.2rem;
+color: white;
+opacity: 1;
+transition: 1s;}
+
+#nikki .swiper-pagination-bullet-active {
+width: 25px;
+height: 25px;
+line-height: 25px;
+background: ㆍrgb(255, 120, 120);
+}
+</style>
+</head>
+<body>
+<div class="container">
+<h1 class="text-center">基本設定</h1>
+<!-- 設定 swiper 結構-->
+<div id="nikki" class="swiper">
+  <!-- 輪播圖主體 -->
+  <div class="swiper-wrapper">
+    <!-- slides 播放的圖片-->
+    <div class="swiper-slide">
+      <img src="https://picsum.photos/1920/1080/?random=1">
+    </div>
+    <div class="swiper-slide">
+      <img src="https://picsum.photos/1920/1080/?random=2">
+    </div>
+    <div class="swiper-slide">
+      <img src="https://picsum.photos/1920/1080/?random=3">
+    </div>
+    <div class="swiper-slide">
+      <img src="https://picsum.photos/1920/1080/?random=4">
+    </div>
+    <div class="swiper-slide">
+      <img src="https://picsum.photos/1920/1080/?random=5">
+    </div>
+    <div class="swiper-slide">
+      <img src="https://picsum.photos/1920/1080/?random=6">
+    </div>
+    <div class="swiper-slide">
+      <img src="https://picsum.photos/1920/1080/?random=7">
+    </div>
+    <div class="swiper-slide">
+      <img src="https://picsum.photos/1920/1080/?random=8">
+    </div>
+    <div class="swiper-slide">
+      <img src="https://picsum.photos/1920/1080/?random=9">
+    </div>
+
+  </div>
+  <!-- 分頁 -->
+  <div class="swiper-pagination"></div>
+
+  <!-- 上一張,下一張-->
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+
+  <!-- 進度條 -->
+  <div class="swiper-scrollbar"></div>
+</div>
+
+
+</div>
+
+
+
+
+
+  <!-- swiper的js -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<script>
+const mySwiper = new Swiper('.swiper', {
+  // Optional parameters
+  direction: "horizontal",
+  // 輪播圖呈現水平horizontal 或垂直 vertical
+  loop: true, //true可以循環播放
+  
+slidesPerView: 1, //每次顯示幾張圖片
+spaceBetween: 0, //圖片與圖片之間間隔距離
+speed:1000, //動畫轉場持續時間
+
+autoplay:{
+  delay:3000, //自動播放，設定幾秒播放下一張
+},
+
+// 使用斷點控制輪播圖各種參數
+breakpoints:{
+  // 576:{
+  //   slidesPerView:2,
+  // },
+// 768:{
+//   slidesPerView:3,
+// },
+992:{
+  slidesPerView:1,
+  autoplay:{
+  delay:5000, 
+}
+},
+// 1200:{
+//   slidesPerView:5,
+//   autoplay:{
+//   delay:5000, 
+// }
+// }
+},
+
+  // pagination 分頁
+  pagination: {
+    el: '.swiper-pagination',
+    renderBullet:
+function(index,className){
+return '<span class="' + className + '">' +(index + 1) + '</span>';
+        },
+  },
+
+  // Navigation arrows 啟用上一張，下一張功能
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+
+  //scrollbar 下方進度條
+  scrollbar: {
+    el: '.swiper-scrollbar',
+    hide:true  //true 只在滑動時顯示，不需要進度條的話把html結構註解
+  },
+});
+
+
+document.addEventListener('keydown', function (e){
+// if (e.key === 'ArrowRight') {
+// mySwiper.slideNext();
+// } else if (e.key=== 'ArrowLeft') {
+// mySwiper.slidePrev();
+// }}
+
+if(e.key === 'ArrowRight')mySwiper.slideNext()
+if (e.key=== 'ArrowLeft')mySwiper.slidePrev()
+})
+</script>
+
+</body>
+</html>
