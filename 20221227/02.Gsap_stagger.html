@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <title>GSAP-tween</title>
+  <style>
+    body {
+      padding-bottom: 200px;
+    }
+
+    h3,
+    h4 {
+      margin-bottom: 20px;
+    }
+
+    .wrap {
+      width: 600px;
+      height: 300px;
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .box1,
+    .box2,
+    .box3,
+    .box4,
+    .box5,
+    .box6,
+    .box7 {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      margin: 5px;
+      margin-bottom: 10px;
+      background: #000;
+    }
+
+    .box2 {
+      background: rgb(144, 111, 236);
+    }
+
+    .box3 {
+      background: greenyellow;
+    }
+
+    .box4 {
+      background: gold;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="container">
+    <h3>10.Stagger 交錯效果</h3>
+    <h4>基礎設定</h4>
+    <div class="box1"></div>
+    <div class="box1"></div>
+    <div class="box1"></div>
+    <div class="box1"></div>
+    <div class="box1"></div>
+    <div class="box1"></div>
+    <div class="box1"></div>
+    <div class="box1"></div>
+    <div class="box1"></div>
+    <div class="box1"></div>
+    <hr>
+    <br>
+    <br>
+    <br>
+
+    <h4>列欄交錯設定</h4>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <hr>
+
+    <h4>11.動畫狀態與事件函式</h4>
+
+    <div class="box3"></div>
+    <div class="progress mb-3">
+      <div class="progress-bar"></div>
+    </div>
+
+    <button id="btn1">play 播放</button>
+    <button id="btn2">paused 暫停狀態</button>
+    <button id="btn3">reversed 反轉狀態</button>
+    <br>
+    <br>
+    <hr>
+
+    <h3>12.gsap.from() 與 gsap.fromTo()</h3>
+    <h4>gsap.from() </h4>
+    <p>指定補間動畫從設定狀態到目前狀態，例如:進場動畫</p>
+    <div class="box4"></div>
+
+    <h4>gsap.fromTo() </h4>
+    <p>指定補間動畫從from(狀態1)到to(狀態2)</p>
+    <div class="box5"></div>
+
+    <br>
+    <br>
+    <hr>
+
+
+
+  </div>
+
+  <script src="./js/bootstrap.bundle.js"></script>
+  <script src="./gsap/gsap.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.js'></script>
+
+  <script>
+
+
+    //  10.Stagger 交錯效果 -----------------------------------------
+    gsap.to('.box1', {
+      y: 100,
+      duration: 1,
+      delay: 0.5,
+      stagger: 0.1, //每個元素動畫交錯時間
+      stagger: {
+        each: 0.5,
+        //關鍵字:'start','center','end','edges','random'
+        from: 'random',
+
+        // 數值 第幾個 index 開始散開交錯
+        // from: '4',
+        repeat: -1,
+        repeatDelay: 0.5,
+        yoyo: true,
+        ease: "elastic", //設定整體交錯動畫的速率，不是每個元素的
+      },
+      rotation: 360
+    })
+
+    //  列欄交錯設定 -----------------------------------------
+    gsap.to('.box2', {
+      rotation: 360,
+      stagger: {
+        each: 1,
+        from: 'random',
+        grid: [1, 10],//值為[列,欄],設定第幾列，第幾欄做交錯動畫
+        repeat: 1,
+        yoyo: true
+      },
+      scale: 'random(0.1, 1)',
+      duration: 1,
+      repeat: 1,
+      yoyo: true
+
+    })
+    //  11.動畫狀態與事件函式 -----------------------------------------
+    const tween = gsap.to('.box3', {
+      x: '80vw',
+      duration: 5,
+      repeat: 2,
+      scale: 'random(0.1, 1)',
+      yoyo: true,
+      paused: true, //暫停
+      reversed: false,
+      ease: 'none',
+      filter: `hue-rotate(random(0,120)deg)`,
+      // 補間動畫函式
+      // 開始
+      onStart: function (param1, param2) {
+        console.log(param1, param2);
+        console.log(this.targets(), this.targets()[0]);
+      },
+      onStartParams: ['動畫開始了', '喵喵'],
+
+      // 結束
+      onComplete: function (param1, param2) {
+        console.log(param1, param2);
+        console.log(this.targets(), this.targets()[0]);
+      },
+      onCompleteParams: ['動畫結束了', '喵喵'],
+
+      // 動畫更新
+      // onUpdate(param1, param2) {
+      //   console.log(param1, param2)
+      //   console.log(this.progress().toFixed(2))
+      //   $('.progress-bar').css({
+      //     width: `${Math.floor(this.progress().toFixed(2) * 100)}%`
+      //   })
+      // },
+      // onUpdateParams: ['動畫更新拉', '喵喵'],
+
+    })
+    $('#btn1').on('click', function () {
+      tween.play()
+    })
+    $('#btn2').on('click', function () {
+      console.log(tween.paused());
+      tween.paused(!(tween.paused()))
+    })
+
+    $('#btn3').on('click', function () {
+      console.log('reversed:' + tween.reversed());
+      tween.reversed(!(tween.reversed()))
+    })
+
+
+    //  12.gsap.from() 與 gsap.fromTo()-----------------------------------------
+    gsap.from('.box4', {
+      x: -500,
+      duration: 2
+    })
+
+    gsap.fromTo('.box5', {
+      x: 500,
+    }, {
+      x: 100,
+      // delay, duration要設定在第2組，第1組沒效果
+      delay: 1,
+      duration: 2
+    }
+    )
+
+
+    // gsap.to('.box1', {
+    //   x: '+=random(-100,100)',
+    //   y: '+=random(-100,100)',
+    //   rotation: 720, //旋轉 ，個別設定 rotationX ,rotationY
+    //   scale: 1.5, //放大 ，個別設定 scaleX ,scaleY
+    //   width: 100,
+    //   height: 100, //設定最終大小
+    //   border: '3px solid gold',
+    //   boxShadow: '0 0 10px rgba(255,255,0,1)',
+    //   backgroundColor: 'transparent', //背景透明
+    //   backdropFilter: 'blur(3px)', //模糊程度
+    //   //opacity: 'random(0.1,1)', //不透明度
+    //   filter: `hue-rotate(random(0,360)deg)`,
+    //   // 動畫屬性
+    //   repeat: 5, // repeat 次數為 1+5 次
+    //   repeatRefresh: true, // 有這個配合repeat會從動畫當時位置去做位移
+    //   duration: 3
+    // })
+
+
+
+    //  8.設定動畫屬性 -----------------------------------------
+    // const tween8 = gsap.to('.box10', {
+    //   x: 600,
+    //   duration: 3,
+    //   delay: 0, //初始播放延遲的時間
+    //   yoyo: true,//像溜溜球往返
+    //   repeat: -1, //-1無限次數
+    //   repeatDelay: 0, //repeat重複前的延遲時間
+
+    //   /*repeatRefresh 設定true ，會記錄前一次的狀態再執行
+    //   而不會回到初始狀態，配合屬性變動值(例如相對),可以讓動畫更生動*/
+    //   repeatRefresh: true,
+    //   // https://greensock.com/docs/v3/Eases
+    //   ease: "slow(0.7, 0.7, false)",
+    //   yoyoEase: "steps(7)"
+    // }
+    // )
+
+
+  </script>
+
+
+</body>
+
+</html>

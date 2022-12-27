@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <title>GSAP-tween</title>
+  <style>
+    html,
+    body {
+      height: 100%;
+
+    }
+
+    body {
+
+      background: url(./images/jojo/bg.png) no-repeat center/cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+
+    }
+
+    #wrap {
+      overflow: hidden;
+      width: 1286px;
+      height: 720px;
+    }
+
+    /* 方法1.
+body 增加       font-size: 0;
+#wrap 改         width: 1400px; */
+    /* 方法2. */
+    img {
+      float: left;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div id="wrap"></div>
+  <!-- <img class="img" src="./images/jojo/jojo_1.png" width="214" height="120"> -->
+
+  <script src="./js/bootstrap.bundle.js"></script>
+  <script src="./gsap/gsap.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.js'></script>
+
+  <script>
+    function loadImage() {
+      for (let i = 1; i <= 36; i++) {
+        wrap.innerHTML += ` <img class="img" src="./images/jojo/jojo_${i}.png" width="214" height="120">`
+      }
+    }
+
+    loadImage()
+
+
+    let flyToggle = 'out'
+    document.addEventListener('click', function () {
+      if (flyToggle == 'out') {
+        gsap.to('.img', {
+          x: '100vw',
+          rotation: 3600,
+          duration: 1,
+          ease: 'back.inOut(6)',
+          stagger: {
+            each: 0.1,
+            from: 'center'
+          },
+          onComplete() {
+            setTimeout(() => {
+              flyToggle = 'in'
+            }, 300)
+          }
+        })
+      } else {
+        gsap.to('.img', {
+          x: 0,
+          rotation: 0,
+          duration: 1,
+          ease: 'elastic.inOut(7)',
+          stagger: {
+            each: 0.5,
+            from: 'center'
+          },
+          onComplete() {
+            setTimeout(() => {
+              flyToggle = 'out'
+            }, 300)
+          }
+        })
+
+      }
+
+    })
+
+  </script>
+
+
+</body>
+
+</html>

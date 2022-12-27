@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <title>GSAP-tween</title>
+  <style>
+    body {
+      height: 100vh;
+      background: #000;
+      overflow: hidden;
+    }
+
+    .container-fluid {
+      perspective: 100px;
+      perspective-origin: center center;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div class="container-fluid vh-100">
+    <!-- 小星星們 -->
+
+
+  </div>
+
+
+  </div>
+
+  <script src="./js/bootstrap.bundle.js"></script>
+  <script src="./gsap/gsap.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.js'></script>
+
+  <script>
+    function createStar(starCount) {
+      for (let i = 0; i < starCount; i++) {
+        $('.container-fluid').append(`<div class='star'>★</div>`)
+        $('.star').each(function (index, element) {
+          $(this).css({
+            position: 'absolute',
+            left: gsap.utils.random(0, 100) + '%',
+            top: gsap.utils.random(0, 100) + '%',
+            color: 'yellow'
+          })
+        })
+      }
+    }
+    createStar(50);
+
+    gsap.to('.star', {
+      fontSize: 'random(12,50)',
+      filter: `drop-shadow(0 0 30px rgba(255,255,0,1))`,
+      // x: 'random(-50,50)',
+      // y: 'random(-50,50)',
+      rotation: '360',
+      left: '+=random(-10,10)%',
+      scale: 'random(0.2,1)',
+      duration: 'random(0,5)',
+      delay: 'random(0.2,1)',
+      repeat: -1,
+      // ease: 'back',
+      repeatRefresh: true,
+      stagger: 0.1,
+      color: 'rgb(random(0,255),random(0,255),random(0,255))',
+      transformOrigin: 'center'
+
+    })
+
+
+
+  </script>
+
+
+</body>
+
+</html>
