@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <title>GSAP-tween</title>
+  <style>
+    body {
+      padding-bottom: 300px;
+    }
+
+
+
+    .box1,
+    .box2,
+    .box3,
+    .box4,
+    .box5,
+    .box6,
+    .box7,
+    .box8,
+    .box9,
+    .box10,
+    .box11,
+    .box12,
+    .box13,
+    .box14,
+    .box15,
+    .box16,
+    .box17,
+    .box18,
+    .box19,
+    .box20,
+    .box21,
+    .box22,
+    .box23,
+    .box24,
+    .box25,
+    .box26,
+    .box27 {
+      width: 50px;
+      height: 50px;
+      margin: 5px;
+      background: #000;
+    }
+
+    .box3,
+    .box4,
+    .box5,
+    .box6 {
+      background: red;
+    }
+
+    .box10,
+    .box11,
+    .box12,
+    .box13,
+    .box14,
+    .box15,
+    .box16 {
+      background: gold;
+    }
+
+
+    .box20,
+    .box21,
+    .box22,
+    .box23,
+    .box24 {
+      background: pink;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div class="container">
+    <h2>時間軸</h2>
+    <ul>
+      <li>timeline 是一種用來組織動畫的方式。
+        它是tween、其他timeline的容器，也是管理動畫的排序工具。</li>
+      <li>timeline 可以使用tween的方法，也有自己的獨特方法</li>
+    </ul>
+
+    <hr>
+
+    <h3>tween 與 timeline的差異</h3>
+    <h4>使用tween 製作佇列動畫</h4>
+    <p>侷限性:沒有timeline， 雖然可用delay 來完成佇列排序動畫，但是如果要調動其中一個 delay，就需要調整其他動畫</p>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+
+    <h4>使用timeline製作佇列動畫</h4>
+    <p>可以輕鬆決定他們進出場的時機，動畫之間可以有間隙等待或是重疊出場</p>
+    <div class="box4"></div>
+    <div class="box5"></div>
+    <div class="box6"></div>
+
+  </div>
+
+
+  <script src="./js/bootstrap.bundle.js"></script>
+  <script src="./gsap/gsap.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.js'></script>
+
+  <script>
+    //使用tween 製作佇列動畫
+
+    gsap.to('.box1', { x: 500, duration: 1 })
+    gsap.to('.box2', { x: 500, duration: 1, delay: 1 })
+    gsap.to('.box3', { x: 500, duration: 1, delay: 2 })
+
+    //使用timeline製作佇列動畫
+    //建立時間軸 timeline 容器
+    const tl1 = gsap.timeline()
+    tl1
+      .to('.box4', { x: 500, duration: 3 })
+      .to('.box5', { x: 500, duration: 5 })
+      .to('.box6', { x: 500, duration: 2 })
+
+  </script>
+
+
+</body>
+
+</html>
