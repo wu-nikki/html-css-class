@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <title>GSAP - tween</title>
+  <style>
+    .box1 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 300px;
+      height: 300px;
+      line-height: 300px;
+      text-align: center;
+      border: 5px solid #000;
+      font-size: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box1"></div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.js'></script>
+  <script src="./js/bootstrap.bundle.min.js"></script>
+  <script src="./gsap/gsap.js"></script>
+
+  <script>
+    const obj = {
+      num: 0
+    }
+
+    gsap.to(obj, {
+      num: 100,
+      duration: 100,
+      ease: 'none',
+      onUpdate() {
+        $('.box1').text(`${obj.num.toFixed(0)}`)
+      }
+    })
+  </script>
+</body>
+
+</html>
