@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <title>GSAP-tween</title>
+  <style>
+    #main {
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    #main .left-door {
+      width: 50%;
+      height: 100%;
+      filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5)) drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    #main .right-door {
+      width: 50%;
+      height: 100%;
+      filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5)) drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+
+    #main .left-door img {
+      object-position: right top;
+    }
+
+    #main .right-door img {
+      object-position: left top;
+    }
+
+    #main .left-door img,
+    #main .right-door img,
+    #main .bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    #main .bg {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    #main .bg img {
+      transform-origin: top;
+    }
+
+    #main .princess {
+      margin: auto;
+      width: 600px;
+      height: 800px;
+      position: relative;
+      top: 50%
+    }
+
+    #main .princess img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transform: scale(1.2);
+    }
+  </style>
+
+</head>
+
+<body>
+  <div id="main">
+    <div class="bg"><img src="./opendoor/fantasy-bg.jpg" alt=""></div>
+    <div class="princess"><img src="./opendoor/fantasy-princess.png" alt=""></div>
+    <div class="left-door"><img src="./opendoor/fantasy-left-door.png" alt=""></div>
+    <div class="right-door"><img src="./opendoor/fantasy-right-door.png" alt=""></div>
+  </div>
+
+  <section id="section01">
+    <div class="container">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, eius eum? Tenetur a qui nemo provident aspernatur
+      ea iure, esse asperiores numquam repellat pariatur odio, ab harum id necessitatibus obcaecati!lo
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum, recusandae. Nesciunt velit fugiat, provident
+      voluptatibus facere adipisci accusantium saepe harum ratione laboriosam voluptatem, dicta impedit. Voluptatem
+      cumque ratione pariatur commodi.
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates voluptatibus odio autem sint? Facere
+      voluptates dicta consequatur facilis totam sint minima qui praesentium unde nobis fugit quae, sequi, tenetur in.
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi iure velit reprehenderit tenetur, placeat
+      praesentium, ratione cupiditate assumenda quae omnis animi molestias quam magni. Debitis labore consequatur
+      saepe
+      totam numquam?Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos dolore odio amet id
+      temporibus
+      dolorem repellat numquam, aliquam non voluptatibus explicabo voluptatum perspiciatis praesentium, quaerat
+      impedit
+      sint quos at quia!
+    </div>
+  </section>
+
+
+  <script src="./js/bootstrap.bundle.js"></script>
+  <script src="./gsap/gsap.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.js'></script>
+  <!-- gsap plugins 需在gsap主程式之後 -->
+  <script src="./gsap/ScrollTrigger.js"></script>
+
+  <script>
+    gsap.registerPlugin(ScrollTrigger)
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: '#main',
+        start: 'top top',
+        end: 'bottom top',
+        scrub: true,
+        markers: true
+      }
+    })
+
+    tl
+      .to('.left-door', {
+        xPercent: -400
+      })
+      .to('.right-door', {
+        xPercent: 400
+      },
+        // '<'這會讓左右同步
+        '<')
+      .to('.princess', {
+        scale: 1.3,
+        y: 150
+      }, '<')
+      .to('.bg img', {
+        scale: 2,
+        y: 300
+      }, '<')
+
+
+
+
+  </script>
+
+
+</body>
+
+</html>

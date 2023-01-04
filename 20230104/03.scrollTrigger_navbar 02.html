@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <title>GSAP-tween</title>
+  <style>
+    body {
+      height: 100vh;
+    }
+
+    section {
+      height: 100vh;
+      background: lightpink;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+    }
+
+    section img {
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+    }
+
+    #section01 .main-text {
+      width: 50%;
+      font-size: 1.5rem;
+      color: antiquewhite;
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 3rem 4rem;
+      backdrop-filter: blur(10px);
+
+    }
+
+    #section01 {
+      background: url("https://picsum.photos/1920/1080/?random=1") no-repeat center/cover;
+    }
+
+
+    #section02 {
+      background: url("https://picsum.photos/1920/1080/?random=2") no-repeat center/cover;
+    }
+
+
+    #section03 {
+      background: url("https://picsum.photos/1920/1080/?random=3") no-repeat center/cover;
+    }
+
+
+    #section04 {
+      background: url("https://picsum.photos/1920/1080/?random=4") no-repeat center/cover;
+    }
+
+    .navbar {
+      opacity: 1;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <nav class="navbar  navbar-expand-lg navbar-light bg-light fixed-top">
+    <div class="container-fluid container">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Dropdown
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled">Disabled</a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+
+
+  <section id="section01">
+    <div class="main-text">
+      <h1 class="text-center">賓館因為雜誌日報可能有權正確</h1>
+      <p>
+        會計相關圖片，出來對話法律，出租設為獨立多次並不是瘋狂四個通常成本體系兩次，加速驚訝看到幸福兄弟警方心靈不良詳細訊息那麼不願意兩年，最低註明章節連結之處最初一直不如高速光臨官員註冊時間，我一很少本類行情有點遠，未經臉色明年專。
+      </p>
+    </div>
+  </section>
+
+
+  <section id="section02"></section>
+  <section id="section03"></section>
+  <section id="section04"></section>
+
+
+  <script src="./js/bootstrap.bundle.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.js'></script>
+  <script src="./gsap/gsap.js"></script>
+  <!-- gsap plugins 需在gsap主程式之後 -->
+  <script src="./gsap/ScrollTrigger.js"></script>
+  <script>
+
+    // 
+    gsap.registerPlugin(ScrollTrigger)
+    // 波浪
+    const navbar_tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: '#section01',
+        // 設定一開始就要觸發scrollTrigger
+        start: '-10px top',
+        end: '56px top',
+        toggleActions: 'play reverse play none',
+        markers: true
+      }
+
+    })
+
+    navbar_tl
+      .from('.navbar', {
+        y: -60,
+        duration: 0.3
+      })
+      .from('.navbar-brand,.nav-item,form', {
+        y: -60,
+        stagger: 0.05
+      })
+
+  </script>
+
+
+</body>
+
+</html>

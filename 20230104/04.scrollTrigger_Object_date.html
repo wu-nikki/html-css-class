@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <title>GSAP-tween</title>
+  <style>
+    body {
+      height: 100vh;
+    }
+
+    section {
+      height: 100vh;
+      background: lightpink;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+    }
+
+    section:nth-child(odd) {
+      background: whitesmoke;
+    }
+
+    section:nth-child(even) {
+      background: burlywood;
+
+    }
+
+
+
+    #date {
+      height: 5rem;
+      display: none;
+      font-size: 5rem;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <section></section>
+
+  <section id="section01">
+    <div id="date"></div>
+  </section>
+
+  <section></section>
+
+
+  <script src="./js/bootstrap.bundle.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.js'></script>
+  <script src="./gsap/gsap.js"></script>
+  <!-- gsap plugins 需在gsap主程式之後 -->
+  <script src="./gsap/ScrollTrigger.js"></script>
+  <script>
+
+    // 
+    gsap.registerPlugin(ScrollTrigger)
+
+    const date = {
+      year: new Date().getFullYear(),
+      month: new Date().getMonth() + 1,
+      day: new Date().getDate()
+    }
+
+    gsap.from(date, {
+      scrollTrigger: {
+        trigger: '#section01',
+        start: 'top center',
+        end: 'bottom center',
+        toggleActions: 'play none none reset',
+        onEnter() {
+          $('#date').css({ display: 'block' })
+        },
+        onLeave() {
+          $('#date').css({ display: 'none' })
+        },
+        markers: true
+      },
+      onUpdate() {
+        $('#date').text(`${date.year.toFixed(0)}/${date.month.toFixed(0)}/${date.day.toFixed(0)}`)
+      },
+      year: 0,
+      month: 0,
+      day: 0,
+      duration: 1
+
+    })
+
+
+  </script>
+
+
+</body>
+
+</html>

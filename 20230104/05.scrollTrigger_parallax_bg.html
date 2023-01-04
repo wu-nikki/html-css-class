@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <title>GSAP-tween</title>
+  <style>
+    section {
+      height: 50vh;
+      font-size: 3rem;
+      color: white;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: 50% 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <section id="section01">section01</section>
+  <section id="section02">section02</section>
+  <section id="section03">section03</section>
+  <section id="section04">section04</section>
+  <section id="section05">section05</section>
+  <section id="section06">section06</section>
+
+
+  <script src="./js/bootstrap.bundle.js"></script>
+  <script src="./gsap/gsap.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.js'></script>
+  <!-- gsap plugins 需在gsap主程式之後 -->
+  <script src="./gsap/ScrollTrigger.js"></script>
+
+  <script>
+    gsap.registerPlugin(ScrollTrigger)
+
+    // 轉成陣列
+    const sections = gsap.utils.toArray('section')
+
+    $(sections).each(function (index, section) {
+      $(section).css({
+        backgroundImage: `url(https://picsum.photos/1920/1080/?random=${index})`
+      })
+      gsap.to(section, {
+        scrollTrigger: {
+          trigger: section,
+          start: "top 50%",
+          end: "bottom 0%",
+          scrub: true,
+          markers: true
+        },
+        backgroundPosition: `50% -50%`,
+        ease: 'none'
+      })
+
+
+    })
+
+
+
+
+
+  </script>
+
+
+</body>
+
+</html>
