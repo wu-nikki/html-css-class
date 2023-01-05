@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/bootstrap.css">
+
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Audiowide&family=Indie+Flower&family=Noto+Sans+TC:wght@100;300;400;500;700;900&family=Press+Start+2P&display=swap"
+    rel="stylesheet">
+
+  <title>GSAP-tween</title>
+  <style>
+    body {
+      font-family: 'Press Start 2P', cursive;
+      height: 100vh;
+      overflow-x: hidden;
+    }
+
+    section {
+      color: white;
+      height: 100%;
+      background: #000;
+      border-bottom: 1px solid #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    section:nth-child(1) {
+      background: url(./images/ff5.jpg) no-repeat center/cover;
+    }
+
+    section:nth-child(2) {
+      background: linear-gradient(0deg, black, transparent), url(./images/bh3.jpg) no-repeat center/cover;
+    }
+
+    #text01 {
+      width: 70%;
+      height: 250px;
+      font-size: 1.5rem;
+      padding: 1rem;
+      background: #070d7f;
+      border: 5px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      position: absolute;
+      bottom: 5%;
+      left: 0;
+      right: 0;
+      margin: auto;
+      z-index: 0;
+    }
+
+    #text02 {
+      width: 100%;
+      height: 100%;
+      color: red;
+      text-align: center;
+      font-size: 8rem;
+      font-family: '標楷體';
+      font-weight: 500;
+      display: none;
+      justify-content: space-evenly;
+      align-items: flex-end;
+    }
+
+    #text03 {
+      font-size: 5rem;
+    }
+  </style>
+
+</head>
+
+<body>
+  <section>
+    <div id="text01">Nobis quidem repudiandae in id eligendi ex magnam, cum repellendus, explicabo incidunt vitae, et
+      amet! Lorem ipsum
+      dolor sit amet consectetur adipisicing elit. Sint esse harum voluptatibus quibusdam qui at? Pariatur, tempore
+      explicabo nostrum possimus recusandae perferendis veritatis, a tempora dolore saepe, accusantium tenetur sequi.
+    </div>
+  </section>
+
+  <section>
+    <div id="text02">
+      生化危機3
+    </div>
+  </section>
+
+  <section>
+    <div id="text03">
+      臨兵鬥者皆陣列在前
+    </div>
+  </section>
+
+
+
+
+
+
+  <script src="./js/bootstrap.bundle.js"></script>
+  <script src="./gsap/gsap.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.js'></script>
+  <!-- gsap plugins 需在gsap主程式之後 -->
+  <script src="./gsap/ScrollTrigger.js"></script>
+
+  <script src="./gsap/SplitText.min.js"></script>
+  <script>
+    gsap.registerPlugin(ScrollTrigger)
+
+    // splitText 將文字拆開
+    const text01 = new SplitText('#text01', {
+      type: 'chars,words,lines'
+    })
+    // splitText 可將目標面的文字折chars,words、lines提供使用,他們都是陣列,也是物件的一種·因此可以被gsap操作
+    console.log(' chars', text01.chars)
+    console.log(' words', text01.words)
+    console.log(' lines', text01.lines)
+
+    gsap.from(text01.chars, {
+      opacity: 0,
+      stagger: 0.1,
+      ease: 'steps(1)'
+    }
+    )
+
+    const text02 = new SplitText('#text02', {
+      type: 'chars'
+    })
+    gsap.set('#text02', {
+      display: 'flex'
+    })
+    gsap.from(text02.chars, {
+      margin: '0 -300',
+    })
+
+    gsap.from(text02.chars, {
+      scale: 20,
+      filter: 'blur(50px)',
+      duration: 3,
+      opacity: 0,
+      stagger: {
+        each: 0.8,
+        from: 'random'
+      }
+    })
+    gsap.from('#text02', {
+      background: 'red',
+      filter: 'blur(50px)',
+      backdropFilter: 'blur(100px)',
+      duration: 5
+    })
+
+
+    const text03 = new SplitText('#text03', {
+      type: 'chars'
+    })
+    gsap.set('#text03', {
+      display: 'block'
+    })
+
+    const tl = gsap.timeline()
+
+    tl
+      .from(text03.chars, {
+        stagger: 0.5,
+        duration: 0.3,
+        opacity: 0,
+        x: 100,
+        scale: 100,
+        rotation: 3600
+      })
+      .to(text03.chars, {
+        x: 'random(-20000,20000)',
+        y: 'random(-20000,20000)',
+        delay: 3,
+        duration: 1,
+        ease: 'power3.inout',
+        onComplete() {
+          text03.revert()//可將splitText拆分狀態回復成原來DOM的文字內容
+        }
+
+      })
+
+
+  </script>
+
+
+</body>
+
+</html>

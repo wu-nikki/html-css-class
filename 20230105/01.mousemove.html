@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <title>GSAP-tween</title>
+  <style>
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .wrap {
+      width: 800px;
+      height: 400px;
+    }
+
+    .wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+
+</head>
+
+<body>
+
+
+  <div class="wrap">
+    <img src="https://picsum.photos/800/400/?random=10">
+
+  </div>
+
+  <script src="./js/bootstrap.bundle.js"></script>
+  <script src="./gsap/gsap.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.js'></script>
+  <!-- gsap plugins 需在gsap主程式之後 -->
+  <script src="./gsap/ScrollTrigger.js"></script>
+
+  <script>
+    gsap.registerPlugin(ScrollTrigger)
+
+    window.addEventListener(
+      'mousemove', function (e) {
+        console.log(e.pageX - window.innerWidth / 2);
+        gsap.to('.wrap', {
+
+          //   boxShadow: `${(e.pageX - window.innerWidth / 2) / 60}px
+          //   ${(e.pageX - window.innerHeight / 2) / 60}px 30px rgba(0,0,0,0.5)`,
+
+          // rotationX: (e.pageX - window.innerWidth / 2) / 10,
+          rotationY: (e.pageY - window.innerWidth / 2) / 10,
+          //   // rotationZ: (e.pageX - window.innerWidth / 2) / 10,
+
+          //   // skewX: -(e.pageX - window.innerWidth / 2) / 100,
+          //   // skewY: -(e.pageY - window.innerWidth / 2) / 100,
+          //   ease: 'back(5)',
+          //   duration: 3
+
+          // x: (e.pageX - window.innerWidth / 2) / 10,
+          // y: (e.pageY - window.innerHeight / 2) / 10,
+
+        })
+
+      }
+    )
+
+
+  </script>
+
+
+</body>
+
+</html>
