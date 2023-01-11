@@ -1,0 +1,55 @@
+#home {
+  // xs
+  height: 350px;
+  position: relative;
+  margin-top: 60px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  // 改左箭頭
+  .carousel-control-prev {
+    background: url(../images/arrow_left.png) no-repeat center/80px;
+    opacity: 1;
+    transition: 0.3s;
+    z-index: 3;
+  }
+  .carousel-control-prev:hover {
+    background: url(../images/arrow_left_hover.png) no-repeat center/80px;
+    opacity: 1;
+    transition: 0.3s;
+  }
+
+  // 改右箭頭
+  .carousel-control-next {
+    background: url(../images/arrow_right.png) no-repeat center/80px;
+    opacity: 1;
+    transition: 0.3s;
+    z-index: 3;
+  }
+  .carousel-control-next:hover {
+    background: url(../images/arrow_right_hover.png) no-repeat center/80px;
+    opacity: 1;
+    transition: 0.3s;
+  }
+
+  @include lg {
+    height: 100vh;
+    margin-top: 0;
+    .mask {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+      background: url(../images/mask.png) no-repeat center/100% 100%;
+
+      // none 表示鼠標事件“穿透”該元素並且指定該元素“下面”的任何東西。
+      // pointer-events: none;
+    }
+  }
+}
