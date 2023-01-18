@@ -32,17 +32,18 @@
   }
 
   @include lg {
-    background: url(../images/navbar.png) no-repeat center top;
+    background: url('../images/navbar.png') no-repeat center top;
     height: 200px;
     .navbar-brand {
-      // 把logo消失，用圖片替代放後面
       display: none;
     }
-    #yi_navbar {
+
+    #kaifu_navbar {
       width: 100%;
       display: flex;
       justify-content: center;
     }
+
     .navbar-nav {
       width: 100%;
       justify-content: center;
@@ -68,7 +69,6 @@
         flex-direction: row;
         align-items: center;
         margin-left: 1rem;
-
         .gap-line {
           display: block;
         }

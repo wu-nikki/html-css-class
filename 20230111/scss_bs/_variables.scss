@@ -302,7 +302,6 @@ $cyans: (
 $primary: #321e00 !default;
 // 專案修改
 $secondary: #574235 !default;
-
 $success: $green !default;
 $info: $cyan !default;
 $warning: $yellow !default;
@@ -364,9 +363,8 @@ $enable-shadows: false !default;
 $enable-gradients: false !default;
 $enable-transitions: true !default;
 $enable-reduced-motion: true !default;
-// 專案修改  false
+// 專案修改 => 改成 false，不能註解
 $enable-smooth-scroll: false !default;
-
 $enable-grid-classes: true !default;
 $enable-container-classes: true !default;
 $enable-cssgrid: false !default;
@@ -1110,9 +1108,8 @@ $zindex-levels: (
 $nav-link-padding-y: 0.5rem !default;
 $nav-link-padding-x: 1rem !default;
 // 專案修改
-// $nav-link-font-size:                null !default;
+// $nav-link-font-size: null !default;
 $nav-link-font-size: 1.3rem !default;
-
 $nav-link-font-weight: null !default;
 $nav-link-color: var(--#{$prefix}link-color) !default;
 $nav-link-hover-color: var(--#{$prefix}link-hover-color) !default;
@@ -1323,10 +1320,10 @@ $accordion-button-padding-x: $accordion-padding-x !default;
 $accordion-button-color: var(--#{$prefix}body-color) !default;
 $accordion-button-bg: var(--#{$prefix}accordion-bg) !default;
 $accordion-transition: $btn-transition, border-radius 0.15s ease !default;
-// $accordion-button-active-bg:              var(--#{$prefix}primary-bg-subtle) !default;
-// $accordion-button-active-color:           var(--#{$prefix}primary-text) !default;
 
 // 專案修改
+// $accordion-button-active-bg: var(--#{$prefix}primary-bg-subtle) !default;
+// $accordion-button-active-color: var(--#{$prefix}primary-text) !default;
 $accordion-button-active-bg: $primary !default;
 $accordion-button-active-color: $light !default;
 
@@ -1470,8 +1467,8 @@ $modal-footer-bg: null !default;
 $modal-footer-border-color: $modal-header-border-color !default;
 $modal-footer-border-width: $modal-header-border-width !default;
 
-// $modal-sm:                          300px !default;
 // 專案修改
+// $modal-sm: 300px !default;
 $modal-sm: 400px !default;
 $modal-md: 500px !default;
 $modal-lg: 800px !default;

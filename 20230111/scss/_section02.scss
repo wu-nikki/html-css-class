@@ -2,7 +2,6 @@
   @extend %frame;
   top: -50px;
   @include lg {
-    // background: url(../images/section01_top_mask.png) no-repeat center top/100%;
     top: 0;
     margin-top: 90px;
   }
